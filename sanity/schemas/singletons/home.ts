@@ -19,7 +19,7 @@ export default defineType({
     defineField({
       name: 'overview',
       description:
-        'Used both for the <meta> description tag for SEO, and the personal website subheader.',
+        'Used both for the <meta> description tag for SEO, and the about.',
       title: 'Description',
       type: 'array',
       of: [
@@ -60,9 +60,8 @@ export default defineType({
     }),
     defineField({
       name: 'showcaseProjects',
-      title: 'Showcase projects',
-      description:
-        'These are the projects that will appear first on your landing page.',
+      title: 'Showcase discography',
+      description: 'These are the albums that will appear on your page.',
       type: 'array',
       of: [
         defineArrayMember({
