@@ -1,5 +1,5 @@
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { Header } from '@/components/shared/Header'
+import { Header } from '@/components/shared/About'
 import type { PagePayload } from '@/types'
 
 export interface PageProps {

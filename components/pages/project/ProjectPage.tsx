@@ -2,7 +2,7 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Link from 'next/link'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { Header } from '@/components/shared/Header'
+import { Header } from '@/components/shared/About'
 import ImageBox from '@/components/shared/ImageBox'
 import type { ProjectPayload } from '@/types'
 

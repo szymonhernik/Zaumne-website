@@ -1,6 +1,32 @@
 import 'tailwindcss/tailwind.css'
 
 import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
+import localFont from 'next/font/local'
+
+const c059 = localFont({
+  src: [
+    {
+      path: './C059-Roman.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './C059-Italic.woff',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: './C059-Bold.woff',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './C059-BdIta.woff',
+      weight: '700',
+      style: 'italic',
+    },
+  ],
+})
 
 const serif = PT_Serif({
   variable: '--font-serif',
@@ -26,10 +52,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={`${mono.variable} ${sans.variable} ${serif.variable}`}
-    >
+    <html lang="en" className={`${c059.className} m-0 p-0 box-border`}>
       <body>{children}</body>
     </html>
   )

@@ -2,30 +2,30 @@ import type { PortableTextBlock } from '@portabletext/types'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import ImageBox from '@/components/shared/ImageBox'
-import type { ShowcaseProject } from '@/types'
+import type { ShowcaseWork } from '@/types'
 
-interface ProjectProps {
-  project: ShowcaseProject
+interface WorkProps {
+  work: ShowcaseWork
 }
 
-export function ProjectListItem(props: ProjectProps) {
-  const { project } = props
+export function WorkListItem(props: WorkProps) {
+  const { work } = props
 
   return (
     <div>
       <div className="">
-        <TextBox project={project} />
+        <TextBox work={work} />
       </div>
     </div>
   )
 }
 
-function TextBox({ project }: { project: ShowcaseProject }) {
+function TextBox({ work }: { work: ShowcaseWork }) {
   return (
     <div>
       <div>
         {/* Title */}
-        <div>{project.title}</div>
+        <div>{work.title}</div>
       </div>
     </div>
   )

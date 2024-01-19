@@ -4,29 +4,21 @@ import Link from 'next/link'
 
 import { HomePage } from '@/components/pages/home/HomePage'
 import { studioUrl } from '@/sanity/lib/api'
-import { loadHomePage } from '@/sanity/loader/loadQuery'
+import { loadCalendar, loadHomePage } from '@/sanity/loader/loadQuery'
 const HomePagePreview = dynamic(
   () => import('@/components/pages/home/HomePagePreview'),
 )
 
 export default async function IndexRoute() {
   const initial = await loadHomePage()
+  const calendar = await loadCalendar()
+
+  // console.log(initial)
+  // console.log(calendar)
 
   if (draftMode().isEnabled) {
-    return <HomePagePreview initial={initial} />
+    return <HomePagePreview initial={initial} calendar={calendar} />
   }
 
-  if (!initial.data) {
-    return (
-      <div className="text-center">
-        You don&rsquo;t have a homepage yet,{' '}
-        <Link href={`${studioUrl}/desk/home`} className="underline">
-          create one now
-        </Link>
-        !
-      </div>
-    )
-  }
-
-  return <HomePage data={initial.data} />
+  return <HomePage data={initial.data} calendar={calendar.data} />
 }

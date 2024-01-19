@@ -26,13 +26,27 @@ export interface ShowcaseProject {
   tags?: string[]
   title?: string
 }
-
+export interface ShowcaseWork {
+  _type: string
+  coverImage?: Image
+  workDetails?: PortableTextBlock[]
+  workDescription?: PortableTextBlock[]
+  highlighted?: boolean
+  title?: string
+}
+export interface ShowcaseMix {
+  _type: string
+  date?: string
+  link?: string
+  title?: string
+}
 // Page payloads
 
 export interface HomePagePayload {
-  footer?: PortableTextBlock[]
-  overview?: PortableTextBlock[]
+  aboutDescription?: PortableTextBlock[]
   showcaseProjects?: ShowcaseProject[]
+  showcaseWorks?: ShowcaseWork[]
+  showcaseMixes?: ShowcaseMix[]
   title?: string
 }
 
@@ -43,20 +57,15 @@ export interface PagePayload {
   title?: string
   slug?: string
 }
+export interface CalendarData {
+  data: CalendarList[] // Array of CalendarPayload objects
+}
 
-export interface ProjectPayload {
-  client?: string
-  coverImage?: Image
-  description?: PortableTextBlock[]
-  duration?: {
-    start?: string
-    end?: string
-  }
-  overview?: PortableTextBlock[]
-  site?: string
-  slug: string
-  tags?: string[]
-  title?: string
+export interface CalendarList {
+  title: string
+  city: string
+  link: string
+  date: string
 }
 
 export interface SettingsPayload {

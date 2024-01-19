@@ -5,8 +5,8 @@ import { draftMode } from 'next/headers'
 
 import { client } from '@/sanity/lib/client'
 import {
+  calendarQuery,
   homePageQuery,
-  pagesBySlugQuery,
   projectBySlugQuery,
   settingsQuery,
 } from '@/sanity/lib/queries'
@@ -14,8 +14,8 @@ import { token } from '@/sanity/lib/token'
 import {
   HomePagePayload,
   PagePayload,
-  ProjectPayload,
   SettingsPayload,
+  CalendarData,
 } from '@/types'
 
 const serverClient = client.withConfig({
@@ -80,18 +80,10 @@ export function loadHomePage() {
   )
 }
 
-export function loadProject(slug: string) {
-  return loadQuery<ProjectPayload | null>(
-    projectBySlugQuery,
-    { slug },
-    { next: { tags: [`project:${slug}`] } },
-  )
-}
-
-export function loadPage(slug: string) {
-  return loadQuery<PagePayload | null>(
-    pagesBySlugQuery,
-    { slug },
-    { next: { tags: [`page:${slug}`] } },
+export function loadCalendar() {
+  return loadQuery<CalendarData | null>(
+    calendarQuery,
+    {},
+    { next: { tags: [`calendar`] } },
   )
 }

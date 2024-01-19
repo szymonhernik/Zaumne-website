@@ -17,7 +17,7 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'overview',
+      name: 'aboutDescription',
       description:
         'Used both for the <meta> description tag for SEO, and the about.',
       title: 'Description',
@@ -66,7 +66,31 @@ export default defineType({
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [{ type: 'project' }],
+          to: [{ type: 'discography' }],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'showcaseWorks',
+      title: 'Showcase works',
+      description: 'These are the works that will appear on your page.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'works' }],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'showcaseMixes',
+      title: 'Showcase mixes',
+      description: 'These are the mixes that will appear on your page.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'mixes' }],
         }),
       ],
     }),
