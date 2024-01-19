@@ -5,7 +5,6 @@ import { draftMode } from 'next/headers'
 
 import { client } from '@/sanity/lib/client'
 import {
-  calendarQuery,
   homePageQuery,
   projectBySlugQuery,
   settingsQuery,
@@ -78,13 +77,5 @@ export function loadHomePage() {
     homePageQuery,
     {},
     { next: { tags: ['home', 'project'] } },
-  )
-}
-
-export function loadCalendar() {
-  return loadQuery<CalendarData | null>(
-    calendarQuery,
-    {},
-    { next: { tags: [`calendar`] } },
   )
 }
