@@ -16,6 +16,7 @@ import {
   PagePayload,
   SettingsPayload,
   CalendarData,
+  CombinedHomePagePayload,
 } from '@/types'
 
 const serverClient = client.withConfig({
@@ -73,7 +74,7 @@ export function loadSettings() {
 }
 
 export function loadHomePage() {
-  return loadQuery<HomePagePayload | null>(
+  return loadQuery<CombinedHomePagePayload>(
     homePageQuery,
     {},
     { next: { tags: ['home', 'project'] } },

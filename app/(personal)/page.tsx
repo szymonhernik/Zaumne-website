@@ -11,14 +11,10 @@ const HomePagePreview = dynamic(
 
 export default async function IndexRoute() {
   const initial = await loadHomePage()
-  const calendar = await loadCalendar()
-
-  // console.log(initial)
-  // console.log(calendar)
 
   if (draftMode().isEnabled) {
-    return <HomePagePreview initial={initial} calendar={calendar} />
+    return <HomePagePreview initial={initial} />
   }
 
-  return <HomePage data={initial.data} calendar={calendar.data} />
+  return <HomePage data={initial.data} />
 }

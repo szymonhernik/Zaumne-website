@@ -19,14 +19,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const ogImage = urlForOpenGraphImage(settings?.ogImage)
   return {
-    title: homePage?.title
+    title: homePage?.home?.title
       ? {
-          template: `%s | ${homePage.title}`,
-          default: homePage.title || 'Personal website',
+          template: `%s | ${homePage.home.title}`,
+          default: homePage.home.title || 'Personal website',
         }
       : undefined,
-    description: homePage?.aboutDescription
-      ? toPlainText(homePage.aboutDescription)
+    description: homePage?.home?.aboutDescription
+      ? toPlainText(homePage.home.aboutDescription)
       : undefined,
     openGraph: {
       images: ogImage ? [ogImage] : [],

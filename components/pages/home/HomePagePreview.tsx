@@ -4,22 +4,18 @@ import { type QueryResponseInitial } from '@sanity/react-loader'
 
 import { calendarQuery, homePageQuery } from '@/sanity/lib/queries'
 import { useQuery } from '@/sanity/loader/useQuery'
-import { CalendarData, HomePagePayload } from '@/types'
+import { CalendarData, CombinedHomePagePayload, HomePagePayload } from '@/types'
 
 import HomePage from './HomePage'
 
 type Props = {
-  initial: QueryResponseInitial<HomePagePayload | null>
-  calendar: any
+  initial: QueryResponseInitial<CombinedHomePagePayload | null>
 }
 
 export default function HomePagePreview(props: Props) {
-  const { initial, calendar } = props
-  const { data, encodeDataAttribute } = useQuery<HomePagePayload | null>(
-    homePageQuery,
-    {},
-    { initial },
-  )
+  const { initial } = props
+  const { data, encodeDataAttribute } =
+    useQuery<CombinedHomePagePayload | null>(homePageQuery, {}, { initial })
 
   if (!data) {
     return (
@@ -28,15 +24,6 @@ export default function HomePagePreview(props: Props) {
       </div>
     )
   }
-  if (!calendar) {
-    return <div className="text-center">Missing calendar!</div>
-  }
 
-  return (
-    <HomePage
-      data={data}
-      calendar={calendar}
-      encodeDataAttribute={encodeDataAttribute}
-    />
-  )
+  return <HomePage data={data} encodeDataAttribute={encodeDataAttribute} />
 }

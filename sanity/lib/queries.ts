@@ -1,7 +1,8 @@
 import { groq } from 'next-sanity'
 
 export const homePageQuery = groq`
-  *[_type == "home"][0]{
+{
+  "home": *[_type == "home"][0]{
     _id,
     aboutDescription,
     showcaseProjects[]->{
@@ -28,7 +29,14 @@ export const homePageQuery = groq`
       title
     },
     title,
+  },
+  "calendar": *[_type == "calendar"] {
+    title,
+    city,
+    date,
+    link
   }
+}
 `
 
 export const calendarQuery = groq`

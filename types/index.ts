@@ -50,6 +50,11 @@ export interface HomePagePayload {
   title?: string
 }
 
+export interface CombinedHomePagePayload {
+  home: HomePagePayload
+  calendar: CalendarData[]
+}
+
 export interface PagePayload {
   body?: PortableTextBlock[]
   name?: string
@@ -57,11 +62,8 @@ export interface PagePayload {
   title?: string
   slug?: string
 }
-export interface CalendarData {
-  data: CalendarList[] // Array of CalendarPayload objects
-}
 
-export interface CalendarList {
+export interface CalendarData {
   title: string
   city: string
   link: string

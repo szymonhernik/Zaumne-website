@@ -9,25 +9,25 @@ import { WorkListItem } from './WorkListItem'
 import { MixListItem } from './MixListItem'
 
 export interface HomePageProps {
-  data: HomePagePayload | null
+  data: {
+    home: HomePagePayload | null
+    calendar: CalendarData[] | null
+  }
   encodeDataAttribute?: EncodeDataAttributeCallback
-  calendar: CalendarData | null
 }
 
-export function HomePage({
-  data,
-  encodeDataAttribute,
-  calendar,
-}: HomePageProps) {
+export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const {
     aboutDescription = [],
     showcaseProjects = [],
     showcaseWorks = [],
     showcaseMixes = [],
-  } = data ?? {}
+  } = data.home ?? {}
 
-  console.log('DATA', calendar)
+  const calendar = data.calendar ?? []
+
+  console.log(calendar)
 
   return (
     <div className="italic font-normal flex flex-col gap-y-0.5">
