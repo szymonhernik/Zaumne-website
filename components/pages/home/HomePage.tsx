@@ -8,6 +8,7 @@ import type { CalendarData, HomePagePayload } from '@/types'
 import { WorkListItem } from './WorkListItem'
 import { MixListItem } from './MixListItem'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { CalendarListItem } from './CalendarListItem'
 
 export interface HomePageProps {
   data: {
@@ -87,10 +88,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           <h1 className="italic">Calendar</h1>
           {calendar.map((calendarItem, key) => {
             return (
-              <div key={key} className="flex">
-                <p>{calendarItem.title}</p>
-                <p>{calendarItem.date}</p>
-                <p>{calendarItem.city}</p>
+              <div
+                key={key}
+                data-sanity={encodeDataAttribute?.(['calendar', key])}
+              >
+                <CalendarListItem calendarItem={calendarItem} />
               </div>
             )
           })}
