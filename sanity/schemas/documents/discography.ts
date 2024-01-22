@@ -10,6 +10,12 @@ export default defineType({
   // liveEdit: true,
   fields: [
     defineField({
+      title: 'Highlight Album',
+      name: 'highlighted',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
       name: 'title',
       description: 'This field is the title of your project.',
       title: 'Title',

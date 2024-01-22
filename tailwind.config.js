@@ -9,6 +9,13 @@ module.exports = {
   ],
   theme: {
     ...theme,
+    extend: {
+      colors: {
+        'zaumne-blue': '#263567',
+        'zaumne-bordo': '#41272c',
+        'zaumne-pink': '#f7b0be',
+      },
+    },
     // Overriding fontFamily to use @next/font loaded families
     fontFamily: {
       mono: 'var(--font-mono)',

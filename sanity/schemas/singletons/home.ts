@@ -17,6 +17,47 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'socials',
+
+      title: 'Social links',
+      type: 'array',
+      of: [
+        // Paragraphs
+        defineArrayMember({
+          lists: [],
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'Link',
+                fields: [
+                  {
+                    name: 'href',
+                    type: 'url',
+                    title: 'Url',
+                  },
+                ],
+              },
+            ],
+            decorators: [
+              {
+                title: 'Italic',
+                value: 'em',
+              },
+              {
+                title: 'Strong',
+                value: 'strong',
+              },
+            ],
+          },
+          styles: [],
+          type: 'block',
+        }),
+      ],
+      validation: (rule) => rule.max(155).required(),
+    }),
+    defineField({
       name: 'aboutDescription',
       description:
         'Used both for the <meta> description tag for SEO, and the about.',

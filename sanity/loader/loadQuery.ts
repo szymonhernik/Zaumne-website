@@ -46,7 +46,7 @@ export const loadQuery = ((query, params = {}, options = {}) => {
   if (!usingCdn && Array.isArray(options.next?.tags)) {
     revalidate = false
   } else if (usingCdn) {
-    revalidate = 60
+    revalidate = 1
   }
   return queryStore.loadQuery(query, params, {
     ...options,
@@ -68,7 +68,7 @@ export function loadSettings() {
   return loadQuery<SettingsPayload>(
     settingsQuery,
     {},
-    { next: { tags: ['settings', 'home', 'page', 'project'] } },
+    { next: { tags: ['settings', 'home', 'page', 'project', 'discography'] } },
   )
 }
 
@@ -76,6 +76,6 @@ export function loadHomePage() {
   return loadQuery<CombinedHomePagePayload>(
     homePageQuery,
     {},
-    { next: { tags: ['home', 'project'] } },
+    { next: { tags: ['home', 'project', 'discography'] } },
   )
 }

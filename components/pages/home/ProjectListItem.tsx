@@ -23,9 +23,11 @@ export function ProjectListItem(props: ProjectProps) {
 function TextBox({ project }: { project: ShowcaseProject }) {
   return (
     <div>
-      <div>
+      <div className={`${project.highlighted ? 'opacity-100' : 'opacity-70'}`}>
         {/* Title */}
-        <div>{project.title}</div>
+        <div className="text-3xl italic	text-zaumne-bordo">{project.title}</div>
+        <div className="text-[10px]	text-zaumne-bordo">({project.date})</div>
+        {/* <CustomPortableText value={project.quote as PortableTextBlock[]} /> */}
       </div>
     </div>
   )

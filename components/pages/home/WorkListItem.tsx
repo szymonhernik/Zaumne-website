@@ -10,6 +10,7 @@ interface WorkProps {
 
 export function WorkListItem(props: WorkProps) {
   const { work } = props
+  console.log(work)
 
   return (
     <div>
@@ -25,7 +26,9 @@ function TextBox({ work }: { work: ShowcaseWork }) {
     <div>
       <div>
         {/* Title */}
-        <div>{work.title}</div>
+        <div className="italic text-zaumne-blue opacity-70 ">{work.title}</div>
+        {work.workDetails && <CustomPortableText value={work.workDetails} />}
+        {work.highlighted == true && <div>more</div>}
       </div>
     </div>
   )

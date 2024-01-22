@@ -25,6 +25,9 @@ export interface ShowcaseProject {
   slug?: string
   tags?: string[]
   title?: string
+  date?: string
+  highlighted: string
+  quote?: PortableTextBlock[]
 }
 export interface ShowcaseWork {
   _type: string
@@ -43,7 +46,8 @@ export interface ShowcaseMix {
 // Page payloads
 
 export interface HomePagePayload {
-  aboutDescription?: PortableTextBlock[]
+  aboutDescription: PortableTextBlock[]
+  socials: PortableTextBlock[]
   showcaseProjects?: ShowcaseProject[]
   showcaseWorks?: ShowcaseWork[]
   showcaseMixes?: ShowcaseMix[]

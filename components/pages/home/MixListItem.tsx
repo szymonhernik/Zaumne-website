@@ -12,10 +12,13 @@ export function MixListItem(props: MixProps) {
   const { mix } = props
 
   return (
-    <div>
-      <div className="">{mix.title}</div>
-      <div className="">{mix.date}</div>
-      <a href={mix.link}>listen</a>
+    <div className="flex items-center  ">
+      <p className="mr-2 text-base">
+        {mix.title} ({mix.date})
+      </p>
+      <a className="text-xs underline text-zaumne-blue" href={mix.link}>
+        listen
+      </a>
     </div>
   )
 }

@@ -7,6 +7,7 @@ import { resolveHref } from '@/sanity/lib/utils'
 import type { CalendarData, HomePagePayload } from '@/types'
 import { WorkListItem } from './WorkListItem'
 import { MixListItem } from './MixListItem'
+import { CustomPortableText } from '@/components/shared/CustomPortableText'
 
 export interface HomePageProps {
   data: {
@@ -20,6 +21,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const {
     aboutDescription = [],
+    socials = [],
     showcaseProjects = [],
     showcaseWorks = [],
     showcaseMixes = [],
@@ -27,16 +29,16 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
   const calendar = data.calendar ?? []
 
-  console.log(calendar)
-
   return (
-    <div className="italic font-normal flex flex-col gap-y-0.5">
+    <div className="font-normal flex flex-col gap-y-10">
       {/* Header */}
-      <About description={aboutDescription} />
+      <CustomPortableText paragraphClasses="italic" value={socials} />
+      <CustomPortableText paragraphClasses="text-lg" value={aboutDescription} />
+      {/* <About description={aboutDescription} /> */}
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="">
-          <p>Projects</p>
+          <h1 className="italic">Discography</h1>
           {showcaseProjects.map((project, key) => {
             return (
               <div
@@ -51,7 +53,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       )}
       {showcaseWorks && showcaseWorks.length > 0 && (
         <div className="">
-          <p>Works</p>
+          <h1 className="italic">Selected Works</h1>
           {showcaseWorks.map((work, key) => {
             return (
               <div
@@ -66,7 +68,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       )}
       {showcaseMixes && showcaseMixes.length > 0 && (
         <div className="">
-          <p>Mixes</p>
+          <h1 className="italic">Mixes</h1>
           {showcaseMixes.map((mix, key) => {
             return (
               <div
@@ -82,6 +84,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
       {calendar && calendar.length > 0 && (
         <div>
+          <h1 className="italic">Calendar</h1>
           {calendar.map((calendarItem, key) => {
             return (
               <div key={key} className="flex">
