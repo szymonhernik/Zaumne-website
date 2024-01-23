@@ -3,3 +3,19 @@ html {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scrollbar-gutter: auto;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}

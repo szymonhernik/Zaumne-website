@@ -45,8 +45,8 @@ export default async function IndexRoute({
 }) {
   return (
     <>
-      <div className="bg-white text-black">
-        <div className="mt-20 px-4 ">
+      <div className=" text-black ">
+        <div className="">
           <Suspense>{children}</Suspense>
         </div>
       </div>

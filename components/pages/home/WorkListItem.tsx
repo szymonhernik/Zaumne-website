@@ -10,7 +10,6 @@ interface WorkProps {
 
 export function WorkListItem(props: WorkProps) {
   const { work } = props
-  console.log(work)
 
   return (
     <div>

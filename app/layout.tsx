@@ -52,7 +52,10 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${c059.className} m-0 p-0 box-border`}>
+    <html
+      lang="en"
+      className={`${c059.className} m-0 p-0 box-border scroll-smooth	`}
+    >
       <body>{children}</body>
     </html>
   )
