@@ -9,6 +9,7 @@ import { WorkListItem } from './WorkListItem'
 import { MixListItem } from './MixListItem'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { CalendarListItem } from './CalendarListItem'
+import Calendar from './Calendar'
 
 export interface HomePageProps {
   data: {
@@ -31,7 +32,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const calendar = data.calendar ?? []
 
   return (
-    <div className="font-normal flex flex-col gap-y-10">
+    <div className="font-normal flex flex-col gap-y-10 mb-64">
       {/* Header */}
       <CustomPortableText paragraphClasses="italic" value={socials} />
       <CustomPortableText paragraphClasses="text-lg" value={aboutDescription} />
@@ -84,18 +85,12 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       )}
 
       {calendar && calendar.length > 0 && (
-        <div>
+        <div className="max-w-md">
           <h1 className="italic">Calendar</h1>
-          {calendar.map((calendarItem, key) => {
-            return (
-              <div
-                key={key}
-                data-sanity={encodeDataAttribute?.(['calendar', key])}
-              >
-                <CalendarListItem calendarItem={calendarItem} />
-              </div>
-            )
-          })}
+          <Calendar
+            calendar={calendar}
+            encodeDataAttribute={encodeDataAttribute}
+          />
         </div>
       )}
     </div>
