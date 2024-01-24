@@ -12,7 +12,6 @@ const sortAndGroupEvents = (events, showAll = false) => {
 
   // Group events by year and then by month
   const groupEvents = (eventsToGroup) => {
-    console.log(eventsToGroup)
     return eventsToGroup.reduce((acc, event) => {
       const year = new Date(event.date).getFullYear()
       const month = new Date(event.date).toLocaleString('default', {

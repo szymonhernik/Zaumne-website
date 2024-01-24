@@ -36,4 +36,16 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      date: 'date',
+    },
+    prepare({ title, date }) {
+      return {
+        subtitle: date,
+        title: title,
+      }
+    },
+  },
 })

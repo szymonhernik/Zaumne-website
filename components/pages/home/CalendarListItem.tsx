@@ -11,7 +11,7 @@ interface CalendarProps {
 
 export function CalendarListItem(props: CalendarProps) {
   const { calendarItem, date } = props
-  console.log(date)
+
   // ['2023','02','14']
 
   return (
