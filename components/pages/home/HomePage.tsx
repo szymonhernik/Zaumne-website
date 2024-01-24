@@ -33,7 +33,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const calendar = data.calendar ?? []
 
   return (
-    <div className="container h-dvh sm:h-screen overflow-y-scroll snap-y snap-proximity font-normal flex flex-col gap-y-10 pb-64  px-4 relative w-full  ">
+    <div className="h-dvh sm:h-screen overflow-y-scroll snap-y snap-proximity font-normal flex flex-col gap-y-10 pb-64  px-4 relative w-screen  ">
       <div className="zaumne-logo min-h-svh sm:h-screen  w-full  flex justify-center items-center snap-start">
         <ZaumneLogo />
       </div>
