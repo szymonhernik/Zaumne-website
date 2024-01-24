@@ -33,6 +33,7 @@ export default function Discography({ showcaseProjects, encodeDataAttribute }) {
               isActive={activeIndex === key} // Add this line
             />
             {/* Logic to display content only for the clicked title */}
+
             {activeIndex === key && (
               <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-screen min-h-screen bg-white  px-4 pt-12">
                 <BoopButton>

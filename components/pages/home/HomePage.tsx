@@ -38,11 +38,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
   return (
     <>
-      <NavBarMobile />
       <div
         id="container"
         className="h-dvh sm:h-screen scroll-smooth overflow-y-scroll overflow-x-visible snap-y snap-proximity font-normal flex flex-col gap-y-10 pb-64  px-4 relative w-screen z-[0] "
       >
+        <NavBarMobile />
         <div
           id="home"
           className="zaumne-logo min-h-svh sm:h-screen  w-full  flex justify-center items-center snap-start"
