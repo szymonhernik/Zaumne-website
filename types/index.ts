@@ -27,6 +27,7 @@ export interface ShowcaseProject {
   title?: string
   date?: string
   highlighted: string
+  label: string
   quote?: PortableTextBlock[]
 }
 export interface ShowcaseWork {
