@@ -17,16 +17,14 @@ interface ProjectProps {
 export function ProjectListItem(props: ProjectProps) {
   const { project, onClick, isActive } = props
 
-  const projectClass = isActive
-    ? 'w-auto opacity-100 hover:cursor-default'
-    : 'hover:cursor-pointer w-auto opacity-20'
-
   console.log(isActive)
   return (
     <div>
       <BoopButton>
         <div
-          className={projectClass}
+          className={`w-auto ${
+            isActive ? 'hover:cursor-default' : 'hover:cursor-pointer'
+          } ${project.highlighted ? 'opacity-100' : 'opacity-70'}`}
           onClick={!isActive ? onClick : undefined} // Apply onClick here
         >
           {/* Title */}
