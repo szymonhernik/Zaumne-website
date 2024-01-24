@@ -8,21 +8,20 @@ import ImageBox from '@/components/shared/ImageBox'
 
 export default function Discography({ showcaseProjects, encodeDataAttribute }) {
   const [activeIndex, setActiveIndex] = useState(null)
-  const [displayAlbum, setDisplayAlbum] = useState(false)
 
-  useEffect(() => {
-    console.log('active: ', activeIndex)
-  }, [activeIndex])
+  useEffect(() => {}, [activeIndex])
 
-  function toggleDisplay(e, key) {
-    setActiveIndex(key)
-    setDisplayAlbum(!displayAlbum)
+  const handleProjectClick = (index) => {
+    setActiveIndex(index)
   }
+
+  const handleClose = () => {
+    setActiveIndex(null)
+  }
+
   return (
     <div className="flex flex-col gap-2">
       {showcaseProjects.map((project, key) => {
-        const isActiveProject = displayAlbum && key === activeIndex
-
         return (
           <div
             key={key}
@@ -30,18 +29,14 @@ export default function Discography({ showcaseProjects, encodeDataAttribute }) {
           >
             <ProjectListItem
               project={project}
-              //   isActive={isActiveProject}
-              //   onToggleDisplay={(e) => isActiveProject && toggleDisplay(e, key)}
-              onToggleDisplay={(e) => toggleDisplay(e, key)}
+              onClick={() => handleProjectClick(key)}
+              isActive={activeIndex === key} // Add this line
             />
-            {displayAlbum && key == activeIndex && (
-              <div className="fixed z-[10] top-0 left w-screen min-w-screen h-screen min-h-screen bg-white  px-4 pt-12">
+            {/* Logic to display content only for the clicked title */}
+            {activeIndex === key && (
+              <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-screen min-h-screen bg-white  px-4 pt-12">
                 <BoopButton>
-                  <button
-                    onClick={(e) => {
-                      toggleDisplay(e, key)
-                    }}
-                  >
+                  <button onClick={handleClose}>
                     <span className="italic underline">back</span>
                   </button>
                 </BoopButton>

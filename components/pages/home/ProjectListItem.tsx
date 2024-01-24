@@ -10,27 +10,24 @@ import BoopButton from '@/components/shared/BoopButton'
 
 interface ProjectProps {
   project: ShowcaseProject
-  onToggleDisplay: (e: any) => void
+  onClick: () => void
+  isActive: boolean
 }
 
 export function ProjectListItem(props: ProjectProps) {
-  const { project, onToggleDisplay } = props
+  const { project, onClick, isActive } = props
 
-  return (
-    <div>
-      <div className="" onClick={onToggleDisplay}>
-        <TextBox project={project} />
-      </div>
-    </div>
-  )
-}
+  const projectClass = isActive
+    ? 'w-auto opacity-100 hover:cursor-default'
+    : 'hover:cursor-pointer w-auto opacity-20'
 
-function TextBox({ project }: { project: ShowcaseProject }) {
+  console.log(isActive)
   return (
     <div>
       <BoopButton>
         <div
-          className={`hover:cursor-pointer w-auto ${project.highlighted ? 'opacity-100' : 'opacity-70'}`}
+          className={projectClass}
+          onClick={!isActive ? onClick : undefined} // Apply onClick here
         >
           {/* Title */}
           <div className="text-3xl w-auto italic	text-zaumne-bordo">
