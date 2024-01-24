@@ -3,6 +3,7 @@ import { ShowcaseWork } from '@/types'
 import { WorkListItem } from './WorkListItem'
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { useState } from 'react'
+import BoopButton from '@/components/shared/BoopButton'
 
 interface WorksProps {
   showcaseWorks: ShowcaseWork[]
@@ -14,7 +15,7 @@ export function Works(props: WorksProps) {
   const [showAll, setShowAll] = useState(false)
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       {showcaseWorks
         .filter((work) => (showAll ? work : work.highlighted)) // Filter works with highlighted set to true
         .map((work, key) => {
@@ -28,9 +29,11 @@ export function Works(props: WorksProps) {
           )
         })}
       <div className="border-t-[1px] border-gray-500 p-4">
-        <button onClick={() => setShowAll(!showAll)}>
-          {showAll ? 'Show Less' : 'Show All'}
-        </button>
+        <BoopButton>
+          <button onClick={() => setShowAll(!showAll)}>
+            {showAll ? 'Show Less' : 'Show All'}
+          </button>
+        </BoopButton>
       </div>
     </div>
   )

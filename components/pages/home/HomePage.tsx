@@ -13,6 +13,7 @@ import Calendar from './Calendar'
 import ZaumneLogo from '@/components/shared/ZaumneLogo'
 import { Works } from './Works'
 import NavBarMobile from './NavBarMobile'
+import BoopButton from '@/components/shared/BoopButton'
 
 export interface HomePageProps {
   data: {
@@ -39,9 +40,12 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <NavBarMobile />
       <div
         id="container"
-        className="h-dvh sm:h-screen scroll-smooth overflow-y-scroll overflow-x-visible snap-y snap-proximity font-normal flex flex-col gap-y-10 pb-64  px-4 relative w-screen  "
+        className="h-dvh sm:h-screen scroll-smooth overflow-y-scroll overflow-x-visible snap-y snap-proximity font-normal flex flex-col gap-y-10 pb-64  px-4 relative w-screen z-[0] "
       >
-        <div className="zaumne-logo min-h-svh sm:h-screen  w-full  flex justify-center items-center snap-start">
+        <div
+          id="home"
+          className="zaumne-logo min-h-svh sm:h-screen  w-full  flex justify-center items-center snap-start"
+        >
           <ZaumneLogo />
         </div>
 
@@ -62,22 +66,27 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         {/* Showcase projects */}
         {showcaseProjects && showcaseProjects.length > 0 && (
           <div id="discography" className="snap-start pt-8 mb-48 ">
-            <h1 className="italic">Discography</h1>
-            {showcaseProjects.map((project, key) => {
-              return (
-                <div
-                  key={key}
-                  data-sanity={encodeDataAttribute?.(['showcaseProjects', key])}
-                >
-                  <ProjectListItem project={project} />
-                </div>
-              )
-            })}
+            <h1 className="italic mb-8">Discography</h1>
+            <div className="flex flex-col gap-2">
+              {showcaseProjects.map((project, key) => {
+                return (
+                  <div
+                    key={key}
+                    data-sanity={encodeDataAttribute?.([
+                      'showcaseProjects',
+                      key,
+                    ])}
+                  >
+                    <ProjectListItem project={project} />
+                  </div>
+                )
+              })}
+            </div>
           </div>
         )}
         {showcaseWorks && showcaseWorks.length > 0 && (
           <div id="works" className="max-w-md snap-start pt-8 mb-48">
-            <h1 className="italic">Selected Works</h1>
+            <h1 className="italic mb-8">Selected Works</h1>
             <Works
               showcaseWorks={showcaseWorks}
               encodeDataAttribute={encodeDataAttribute}
@@ -86,23 +95,25 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         )}
         {showcaseMixes && showcaseMixes.length > 0 && (
           <div id="mixes" className="snap-start pt-8 mb-48">
-            <h1 className="italic">Mixes</h1>
-            {showcaseMixes.map((mix, key) => {
-              return (
-                <div
-                  key={key}
-                  data-sanity={encodeDataAttribute?.(['showcaseMixes', key])}
-                >
-                  <MixListItem mix={mix} />
-                </div>
-              )
-            })}
+            <h1 className="italic mb-8">Mixes</h1>
+            <div className="flex flex-col gap-4">
+              {showcaseMixes.map((mix, key) => {
+                return (
+                  <div
+                    key={key}
+                    data-sanity={encodeDataAttribute?.(['showcaseMixes', key])}
+                  >
+                    <MixListItem mix={mix} />
+                  </div>
+                )
+              })}
+            </div>
           </div>
         )}
 
         {calendar && calendar.length > 0 && (
           <div id="calendar" className="max-w-md snap-start pt-8">
-            <h1 className="italic">Calendar</h1>
+            <h1 className="italic mb-8">Calendar</h1>
             <Calendar calendar={calendar} />
           </div>
         )}

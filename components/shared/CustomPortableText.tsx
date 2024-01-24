@@ -4,6 +4,7 @@ import { Image } from 'sanity'
 
 import ImageBox from '@/components/shared/ImageBox'
 import { TimelineSection } from '@/components/shared/TimelineSection'
+import BoopButton from './BoopButton'
 
 export function CustomPortableText({
   paragraphClasses,
@@ -21,13 +22,15 @@ export function CustomPortableText({
     marks: {
       link: ({ children, value }) => {
         return (
-          <a
-            className="underline transition hover:opacity-50"
-            href={value?.href}
-            rel="noreferrer noopener"
-          >
-            {children}
-          </a>
+          <BoopButton>
+            <a
+              className="underline transition hover:opacity-50"
+              href={value?.href}
+              rel="noreferrer noopener"
+            >
+              {children}
+            </a>
+          </BoopButton>
         )
       },
     },

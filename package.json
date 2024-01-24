@@ -32,7 +32,8 @@
     "sanity": "3.24.1",
     "sanity-plugin-asset-source-unsplash": "1.1.2",
     "server-only": "0.0.1",
-    "styled-components": "6.1.8"
+    "styled-components": "6.1.8",
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "18.2.48",
