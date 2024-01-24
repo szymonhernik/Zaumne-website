@@ -40,7 +40,7 @@ export default function Discography({ showcaseProjects, encodeDataAttribute }) {
                     <span className="italic underline">back</span>
                   </button>
                 </BoopButton>
-                <h1 className="italic text-zaumne-blue">
+                <h1 className="italic text-zaumne-bordo">
                   {project.title}
                   <span className="not-italic text-black">
                     , {project.label} ({project.date})
@@ -52,14 +52,18 @@ export default function Discography({ showcaseProjects, encodeDataAttribute }) {
                   </a>
                 </BoopButton>
                 {/* <Image /> */}
-                <div className="w-full flex justify-center">
+                <div className="w-3/4 flex justify-self-center">
                   <ImageBox
                     classesWrapper="w-full"
                     image={project.coverImage}
                     alt={project.coverImage.alt}
                   />
                 </div>
-                {project.quote && <CustomPortableText value={project.quote} />}
+                {project.quote && (
+                  <div className="border-x-[1px] border-black rounded-2xl px-[19px] py-[15px]">
+                    <CustomPortableText value={project.quote} />
+                  </div>
+                )}
               </div>
             )}
           </div>
