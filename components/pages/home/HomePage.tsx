@@ -11,6 +11,7 @@ import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { CalendarListItem } from './CalendarListItem'
 import Calendar from './Calendar'
 import ZaumneLogo from '@/components/shared/ZaumneLogo'
+import { Works } from './Works'
 
 export interface HomePageProps {
   data: {
@@ -69,18 +70,12 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         </div>
       )}
       {showcaseWorks && showcaseWorks.length > 0 && (
-        <div className="snap-start pt-8 mb-48">
+        <div className="max-w-md snap-start pt-8 mb-48">
           <h1 className="italic">Selected Works</h1>
-          {showcaseWorks.map((work, key) => {
-            return (
-              <div
-                key={key}
-                data-sanity={encodeDataAttribute?.(['showcaseWorks', key])}
-              >
-                <WorkListItem work={work} />
-              </div>
-            )
-          })}
+          <Works
+            showcaseWorks={showcaseWorks}
+            encodeDataAttribute={encodeDataAttribute}
+          />
         </div>
       )}
       {showcaseMixes && showcaseMixes.length > 0 && (
