@@ -14,6 +14,7 @@ export const homePageQuery = groq`
       date,
       link,
       quote,
+      label,
       productionInfo,
     },
     showcaseWorks[]->{

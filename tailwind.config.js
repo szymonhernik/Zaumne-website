@@ -8,6 +8,9 @@ module.exports = {
         'zaumne-bordo': '#41272c',
         'zaumne-pink': '#f7b0be',
       },
+      screens: {
+        'big-tablet': '926px',
+      },
     },
     // Overriding fontFamily to use @next/font loaded families
     fontFamily: {

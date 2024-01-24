@@ -14,6 +14,7 @@ import ZaumneLogo from '@/components/shared/ZaumneLogo'
 import { Works } from './Works'
 import NavBarMobile from './NavBarMobile'
 import BoopButton from '@/components/shared/BoopButton'
+import Discography from './Discography'
 
 export interface HomePageProps {
   data: {
@@ -67,21 +68,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         {showcaseProjects && showcaseProjects.length > 0 && (
           <div id="discography" className="snap-start pt-8 mb-48 ">
             <h1 className="italic mb-8">Discography</h1>
-            <div className="flex flex-col gap-2">
-              {showcaseProjects.map((project, key) => {
-                return (
-                  <div
-                    key={key}
-                    data-sanity={encodeDataAttribute?.([
-                      'showcaseProjects',
-                      key,
-                    ])}
-                  >
-                    <ProjectListItem project={project} />
-                  </div>
-                )
-              })}
-            </div>
+            <Discography
+              showcaseProjects={showcaseProjects}
+              encodeDataAttribute={encodeDataAttribute}
+            />
           </div>
         )}
         {showcaseWorks && showcaseWorks.length > 0 && (

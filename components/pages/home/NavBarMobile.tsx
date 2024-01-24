@@ -30,7 +30,7 @@ export default function NavBarMobile() {
   }, [])
   return (
     <div
-      className={` z-[1] fixed top-4 right-4 text-right transition-transform duration-1000 ease-out ${isVisible ? '' : '-translate-y-96'}`}
+      className={`big-tablet:hidden z-[2] fixed top-4 right-4 text-right transition-transform duration-1000 ease-out ${isVisible ? '' : '-translate-y-96'}`}
     >
       <ul className="">
         <BoopButton>
