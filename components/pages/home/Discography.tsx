@@ -3,7 +3,7 @@ import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { ProjectListItem } from './ProjectListItem'
 import { useEffect, useState } from 'react'
 import BoopButton from '@/components/shared/BoopButton'
-import Image from 'next/image'
+
 import ImageBox from '@/components/shared/ImageBox'
 
 export default function Discography({ showcaseProjects, encodeDataAttribute }) {

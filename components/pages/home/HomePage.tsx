@@ -1,19 +1,11 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import Link from 'next/link'
-
-import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
-import { About } from '@/components/shared/About'
-import { resolveHref } from '@/sanity/lib/utils'
 import type { CalendarData, HomePagePayload } from '@/types'
-import { WorkListItem } from './WorkListItem'
 import { MixListItem } from './MixListItem'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { CalendarListItem } from './CalendarListItem'
 import Calendar from './Calendar'
 import ZaumneLogo from '@/components/shared/ZaumneLogo'
 import { Works } from './Works'
 import NavBarMobile from './NavBarMobile'
-import BoopButton from '@/components/shared/BoopButton'
 import Discography from './Discography'
 
 export interface HomePageProps {
