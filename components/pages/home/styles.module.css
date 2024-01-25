@@ -1,0 +1,5 @@
+@media (max-width: 926px) {
+  .titles {
+    transform: translateX(0) !important;
+  }
+}

@@ -42,13 +42,16 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           <ZaumneLogo />
         </div>
 
-        <div id="info" className=" snap-start mb-48">
-          <div className="h-[80svh]">
+        <div
+          id="info"
+          className=" snap-start mb-48 big-tablet:mb-0 big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:h-dvh  big-tablet:flex big-tablet:flex-col big-tablet:justify-between "
+        >
+          <div className="h-[80svh] big-tablet:h-auto">
             <div className="socials sticky top-0 py-4">
               <CustomPortableText paragraphClasses="italic" value={socials} />
             </div>
           </div>
-          <div className="about-text max-w-md">
+          <div className="about-text max-w-md big-tablet:mb-4">
             <CustomPortableText
               paragraphClasses="text-lg"
               value={aboutDescription}
@@ -58,8 +61,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         {/* <About description={aboutDescription} /> */}
         {/* Showcase projects */}
         {showcaseProjects && showcaseProjects.length > 0 && (
-          <div id="discography" className="snap-start pt-8 mb-48 ">
-            <h1 className="italic mb-8">Discography</h1>
+          <div
+            id="discography"
+            className="snap-start pt-8 mb-48 big-tablet:absolute big-tablet:top-[105vh] big-tablet:w-auto big-tablet:right-[18vw] big-tablet:text-right"
+          >
+            <h1 className="italic mb-8 big-tablet:hidden">Discography</h1>
             <Discography
               showcaseProjects={showcaseProjects}
               encodeDataAttribute={encodeDataAttribute}

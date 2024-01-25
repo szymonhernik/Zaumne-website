@@ -21,16 +21,18 @@ export function ProjectListItem(props: ProjectProps) {
     <div>
       <BoopButton>
         <div
-          className={`w-auto ${
+          className={`w-auto big-tablet:flex big-tablet:justify-end big-tablet:gap-2 ${
             isActive ? 'hover:cursor-default' : 'hover:cursor-pointer'
           } ${project.highlighted ? 'opacity-100' : 'opacity-70'}`}
           onClick={!isActive ? onClick : undefined} // Apply onClick here
         >
           {/* Title */}
-          <div className="text-3xl w-auto italic	text-zaumne-bordo">
+          <div className="text-3xl big-tablet:text-[2.5rem] w-auto italic	text-zaumne-bordo">
             {project.title}
           </div>
-          <div className="text-[10px]	text-zaumne-bordo">({project.date})</div>
+          <div className="text-[10px] big-tablet:mt-[-5px] big-tablet:text-base	text-zaumne-bordo">
+            ({project.date})
+          </div>
 
           {/* <CustomPortableText value={project.quote as PortableTextBlock[]} /> */}
         </div>

@@ -1,8 +1,11 @@
 'use client'
+import { isBrowser } from 'react-device-detect'
+
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { ProjectListItem } from './ProjectListItem'
 import { useEffect, useState } from 'react'
 import BoopButton from '@/components/shared/BoopButton'
+import styles from './styles.module.css'
 
 import ImageBox from '@/components/shared/ImageBox'
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
@@ -11,6 +14,20 @@ import { ShowcaseProject } from '@/types'
 interface DiscographyProps {
   showcaseProjects: ShowcaseProject[]
   encodeDataAttribute?: EncodeDataAttributeCallback
+}
+
+// This function will generate a transform value based on the sine function
+// You can adjust the amplitude and frequency to control how the titles align
+const getTransformValue = (index, totalItems) => {
+  const frequency = Math.PI / totalItems // This controls the "width" of the wave
+  const amplitude = 60 // This controls how far the items move
+  const phaseShift = Math.PI / 0.85 // This shifts the wave to start from the center
+
+  // We multiply the index by the frequency and add a phase shift to get our sine value
+  const sineValue = Math.sin(frequency * index + phaseShift)
+  console.log(sineValue)
+  // We then multiply by the amplitude to get our final transform value
+  return sineValue * amplitude
 }
 
 export default function Discography(props: DiscographyProps) {
@@ -28,12 +45,21 @@ export default function Discography(props: DiscographyProps) {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 big-tablet:gap-4  ">
       {showcaseProjects.map((project, key) => {
+        const totalItems = showcaseProjects.length
+
+        const transformXValue = getTransformValue(key, totalItems)
+
         return (
           <div
             key={key}
             data-sanity={encodeDataAttribute?.(['showcaseProjects', key])}
+            className={`titles big-tablet:will-change-transform ${styles.titles}`}
+            style={{
+              transform: `translateX(${transformXValue}px)`, // Apply the transform here
+              transition: 'transform 0.3s', // Optional: Adds smooth transition for the transform
+            }}
           >
             <ProjectListItem
               project={project}
