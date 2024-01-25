@@ -34,6 +34,7 @@
     "sanity-plugin-asset-source-unsplash": "1.1.2",
     "server-only": "0.0.1",
     "styled-components": "6.1.8",
+    "use-debounce": "^10.0.0",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {

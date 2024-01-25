@@ -2,10 +2,11 @@
 import { ShowcaseWork } from '@/types'
 import { WorkListItem } from './WorkListItem'
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import BoopButton from '@/components/shared/BoopButton'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import ImageBox from '@/components/shared/ImageBox'
+import { useDebouncedCallback } from 'use-debounce'
 
 interface WorksProps {
   showcaseWorks: ShowcaseWork[]
@@ -14,8 +15,22 @@ interface WorksProps {
 
 export function Works(props: WorksProps) {
   const { showcaseWorks, encodeDataAttribute } = props
-  const [showAll, setShowAll] = useState(false)
+  const [showAll, setShowAll] = useState(true)
   const [activeIndex, setActiveIndex] = useState(null)
+
+  // Debounce callback for checking screen size
+  const debouncedCheckScreenSize = useDebouncedCallback(() => {
+    setShowAll(window.innerWidth > 926)
+  }, 100)
+
+  useEffect(() => {
+    debouncedCheckScreenSize()
+    window.addEventListener('resize', debouncedCheckScreenSize)
+    return () => {
+      window.removeEventListener('resize', debouncedCheckScreenSize)
+    }
+  }, [debouncedCheckScreenSize])
+
   const handleClose = () => {
     setActiveIndex(null)
   }
@@ -70,7 +85,7 @@ export function Works(props: WorksProps) {
             </div>
           )
         })}
-      <div className="border-t-[1px] border-gray-500 p-4">
+      <div className="border-t-[1px] border-gray-500 p-4 big-tablet:hidden">
         <BoopButton>
           <button onClick={() => setShowAll(!showAll)}>
             {showAll ? 'Show Less' : 'Show All'}
