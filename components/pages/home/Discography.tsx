@@ -43,25 +43,28 @@ export default function Discography(props: DiscographyProps) {
             {/* Logic to display content only for the clicked title */}
 
             {activeIndex === key && (
-              <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-screen min-h-screen bg-white  px-4 pt-12">
-                <BoopButton>
-                  <button onClick={handleClose}>
-                    <span className="italic underline">back</span>
-                  </button>
-                </BoopButton>
-                <h1 className="italic text-zaumne-bordo">
-                  {project.title}
-                  <span className="not-italic text-black">
-                    , {project.label} ({project.date})
-                  </span>
-                </h1>
-                <BoopButton>
-                  <a href={project.link} className="underline">
-                    listen
-                  </a>
-                </BoopButton>
+              <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-dvh min-h-dvh bg-white  px-4 pt-10 overflow-scroll pb-16">
+                <div className="sticky top-0">
+                  <BoopButton>
+                    <button className="py-2 pr-6" onClick={handleClose}>
+                      <span className="italic underline ">back</span>
+                    </button>
+                  </BoopButton>
+                  <h1 className="italic text-zaumne-bordo mt-8">
+                    {project.title}
+                    <span className="not-italic text-black">
+                      , {project.label} ({project.date})
+                    </span>
+                  </h1>
+                  <BoopButton>
+                    <a href={project.link} className="underline">
+                      listen
+                    </a>
+                  </BoopButton>
+                </div>
+
                 {/* <Image /> */}
-                <div className="w-3/4 flex justify-self-center">
+                <div className="w-[80vw] flex mx-auto mt-16 mb-16  shadow-zaumne">
                   <ImageBox
                     classesWrapper="w-full"
                     image={project.coverImage}
