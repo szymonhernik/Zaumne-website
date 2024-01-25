@@ -32,7 +32,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     <>
       <div
         id="container"
-        className="h-dvh sm:h-screen scroll-smooth overflow-y-scroll overflow-x-visible snap-y snap-proximity font-normal flex flex-col gap-y-10 pb-64  px-4 relative w-screen z-[0] "
+        className="h-dvh sm:h-screen scroll-smooth overflow-y-scroll overflow-x-visible snap-y snap-proximity font-normal flex flex-col gap-y-10 pb-64 big-tablet:pb-0 px-4 relative w-screen z-[0] "
       >
         <NavBarMobile />
         <div
@@ -44,7 +44,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
         <div
           id="info"
-          className=" snap-start mb-48 big-tablet:mb-0 big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:h-dvh  big-tablet:flex big-tablet:flex-col big-tablet:justify-between "
+          className="snap-start mb-48 big-tablet:mb-0 big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:h-dvh  big-tablet:flex big-tablet:flex-col big-tablet:justify-between "
         >
           <div className="h-[80svh] big-tablet:h-auto">
             <div className="socials sticky top-0 py-4">
@@ -59,52 +59,70 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           </div>
         </div>
         {/* <About description={aboutDescription} /> */}
-        {/* Showcase projects */}
-        {showcaseProjects && showcaseProjects.length > 0 && (
-          <div
-            id="discography"
-            className="snap-start pt-8 mb-48 big-tablet:absolute big-tablet:top-[105vh] big-tablet:w-auto big-tablet:right-[18vw] big-tablet:text-right"
-          >
-            <h1 className="italic mb-8 big-tablet:hidden">Discography</h1>
-            <Discography
-              showcaseProjects={showcaseProjects}
-              encodeDataAttribute={encodeDataAttribute}
-            />
-          </div>
-        )}
-        {showcaseWorks && showcaseWorks.length > 0 && (
-          <div id="works" className="max-w-md snap-start pt-8 mb-48">
-            <h1 className="italic mb-8">Selected Works</h1>
-            <Works
-              showcaseWorks={showcaseWorks}
-              encodeDataAttribute={encodeDataAttribute}
-            />
-          </div>
-        )}
-        {showcaseMixes && showcaseMixes.length > 0 && (
-          <div id="mixes" className="snap-start pt-8 mb-48">
-            <h1 className="italic mb-8">Mixes</h1>
-            <div className="flex flex-col gap-4">
-              {showcaseMixes.map((mix, key) => {
-                return (
-                  <div
-                    key={key}
-                    data-sanity={encodeDataAttribute?.(['showcaseMixes', key])}
-                  >
-                    <MixListItem mix={mix} />
-                  </div>
-                )
-              })}
+        <div className="big-tablet:relative big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:w-dvh  ">
+          {/* Showcase projects */}
+          {showcaseProjects && showcaseProjects.length > 0 && (
+            <div
+              id="discography"
+              className="snap-start pt-8 mb-48 big-tablet:absolute big-tablet:top-[0] big-tablet:w-auto big-tablet:right-[18vw] big-tablet:text-right big-tablet:pt-[5vh]"
+            >
+              <h1 className="italic mb-8 big-tablet:hidden">Discography</h1>
+              <Discography
+                showcaseProjects={showcaseProjects}
+                encodeDataAttribute={encodeDataAttribute}
+              />
             </div>
+          )}
+          <div className="big-tablet:max-h-[60dvh] big-tablet:h-[60dvh] big-tablet:mt-[40dvh]  big-tablet:relative big-tablet:overflow-scroll big-tablet:border-t-[1px] big-tablet:border-r-[1px] big-tablet:border-black big-tablet:max-w-md big-tablet:p-4">
+            {showcaseWorks && showcaseWorks.length > 0 && (
+              <div
+                id="works"
+                className="max-w-md snap-start pt-8 mb-48 big-tablet:absolute big-tablet:top-0 "
+              >
+                <h1 className="italic mb-8 big-tablet:hidden">
+                  Selected Works
+                </h1>
+                <Works
+                  showcaseWorks={showcaseWorks}
+                  encodeDataAttribute={encodeDataAttribute}
+                />
+              </div>
+            )}
+            {showcaseMixes && showcaseMixes.length > 0 && (
+              <div
+                id="mixes"
+                className="snap-start pt-8 mb-48 big-tablet:absolute big-tablet:top-0"
+              >
+                <h1 className="italic mb-8 big-tablet:hidden ">Mixes</h1>
+                <div className="flex flex-col gap-4">
+                  {showcaseMixes.map((mix, key) => {
+                    return (
+                      <div
+                        key={key}
+                        data-sanity={encodeDataAttribute?.([
+                          'showcaseMixes',
+                          key,
+                        ])}
+                      >
+                        <MixListItem mix={mix} />
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
           </div>
-        )}
 
-        {calendar && calendar.length > 0 && (
-          <div id="calendar" className="max-w-md snap-start pt-8">
-            <h1 className="italic mb-8">Calendar</h1>
-            <Calendar calendar={calendar} />
-          </div>
-        )}
+          {calendar && calendar.length > 0 && (
+            <div
+              id="calendar"
+              className="max-w-md snap-start pt-8 big-tablet:absolute big-tablet:bottom-0 big-tablet:right-0"
+            >
+              <h1 className="italic mb-8">Calendar</h1>
+              <Calendar calendar={calendar} />
+            </div>
+          )}
+        </div>
       </div>
     </>
   )

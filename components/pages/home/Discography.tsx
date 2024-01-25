@@ -25,7 +25,7 @@ const getTransformValue = (index, totalItems) => {
 
   // We multiply the index by the frequency and add a phase shift to get our sine value
   const sineValue = Math.sin(frequency * index + phaseShift)
-  console.log(sineValue)
+
   // We then multiply by the amplitude to get our final transform value
   return sineValue * amplitude
 }
