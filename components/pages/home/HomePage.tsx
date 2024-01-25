@@ -37,7 +37,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         <NavBarMobile />
         <div
           id="home"
-          className="zaumne-logo min-h-svh sm:h-screen  w-full  flex justify-center items-center snap-start"
+          className="zaumne-logo min-h-svh sm:h-screen w-full flex justify-center items-center snap-start big-tablet:fixed  big-tablet:min-h-4 big-tablet:h-auto big-tablet:bottom-[15dvh] big-tablet:right-[30dvw] big-tablet:w-auto"
         >
           <ZaumneLogo />
         </div>
