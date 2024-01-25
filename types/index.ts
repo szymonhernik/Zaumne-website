@@ -26,6 +26,7 @@ export interface ShowcaseProject {
   tags?: string[]
   title?: string
   date?: string
+  link?: string
   highlighted: string
   label: string
   quote?: PortableTextBlock[]

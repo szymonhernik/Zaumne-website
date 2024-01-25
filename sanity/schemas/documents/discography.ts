@@ -53,6 +53,7 @@ export default defineType({
           type: 'string',
           title: 'Alt text',
           description: 'Alternative text for screenreaders. ',
+          validation: (rule) => rule.required(),
         }),
       ],
     }),

@@ -5,8 +5,16 @@ import { useEffect, useState } from 'react'
 import BoopButton from '@/components/shared/BoopButton'
 
 import ImageBox from '@/components/shared/ImageBox'
+import { EncodeDataAttributeCallback } from '@sanity/react-loader'
+import { ShowcaseProject } from '@/types'
 
-export default function Discography({ showcaseProjects, encodeDataAttribute }) {
+interface DiscographyProps {
+  showcaseProjects: ShowcaseProject[]
+  encodeDataAttribute?: EncodeDataAttributeCallback
+}
+
+export default function Discography(props: DiscographyProps) {
+  const { showcaseProjects, encodeDataAttribute } = props
   const [activeIndex, setActiveIndex] = useState(null)
 
   useEffect(() => {}, [activeIndex])
@@ -57,7 +65,7 @@ export default function Discography({ showcaseProjects, encodeDataAttribute }) {
                   <ImageBox
                     classesWrapper="w-full"
                     image={project.coverImage}
-                    alt={project.coverImage.alt}
+                    alt={`${project.coverImage?.alt ?? ''}`}
                   />
                 </div>
                 {project.quote && (
