@@ -57,22 +57,27 @@ export default function Discography(props: DiscographyProps) {
                     </span>
                   </h1>
                   <BoopButton>
-                    <a href={project.link} className="underline">
+                    <a
+                      target="_blank"
+                      href={project.link}
+                      className="underline"
+                    >
                       listen
                     </a>
                   </BoopButton>
                 </div>
 
                 {/* <Image /> */}
-                <div className="w-[80vw] flex mx-auto mt-16 mb-16  shadow-zaumne">
+                <div className="w-[80vw] sm:max-w-md flex mx-auto mt-16 mb-16  ">
                   <ImageBox
                     classesWrapper="w-full"
+                    classesImage="shadow-zaumne mx-auto"
                     image={project.coverImage}
                     alt={`${project.coverImage?.alt ?? ''}`}
                   />
                 </div>
                 {project.quote && (
-                  <div className="border-x-[1px] border-black rounded-2xl px-[19px] py-[15px]">
+                  <div className="border-x-[1px] border-black rounded-2xl px-[19px] py-[15px] max-w-md">
                     <CustomPortableText value={project.quote} />
                   </div>
                 )}

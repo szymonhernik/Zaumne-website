@@ -51,16 +51,17 @@ export function Works(props: WorksProps) {
                     <CustomPortableText value={work.workDetails} />
                   )}
                   {work.coverImage && (
-                    <div className="w-[80vw] flex mx-auto mt-16 mb-16 ">
+                    <div className="w-[80vw] sm:max-w-md flex mx-auto mt-16 mb-16 ">
                       <ImageBox
                         classesWrapper="w-full"
+                        classesImage="mx-auto"
                         image={work.coverImage}
                         alt={`${work.coverImage?.alt ?? ''}`}
                       />
                     </div>
                   )}
                   {work.workDescription && (
-                    <div className="border-x-[1px] border-black rounded-2xl px-[19px] py-[15px]">
+                    <div className="border-x-[1px] border-black rounded-2xl px-[19px] py-[15px] max-w-md">
                       <CustomPortableText value={work.workDescription} />
                     </div>
                   )}

@@ -48,7 +48,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               <CustomPortableText paragraphClasses="italic" value={socials} />
             </div>
           </div>
-          <div className="about-text ">
+          <div className="about-text max-w-md">
             <CustomPortableText
               paragraphClasses="text-lg"
               value={aboutDescription}

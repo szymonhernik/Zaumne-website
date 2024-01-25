@@ -16,7 +16,11 @@ export function MixListItem(props: MixProps) {
       <p className="mr-2 text-base">
         {mix.title} ({mix.date})
       </p>
-      <a className="text-xs underline text-zaumne-blue" href={mix.link}>
+      <a
+        target="_blank"
+        className="text-xs underline text-zaumne-blue"
+        href={mix.link}
+      >
         listen
       </a>
     </div>
