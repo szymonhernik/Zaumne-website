@@ -4,10 +4,11 @@ import { toPlainText } from '@portabletext/react'
 import { Metadata, Viewport } from 'next'
 import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
-import { Suspense } from 'react'
+import { Suspense, createContext } from 'react'
 
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
+import { SoundProvider } from '@/components/global/providers'
 
 const VisualEditing = dynamic(() => import('@/sanity/loader/VisualEditing'))
 
@@ -45,11 +46,13 @@ export default async function IndexRoute({
 }) {
   return (
     <>
-      <div className=" text-black ">
-        <div className="">
-          <Suspense>{children}</Suspense>
+      <SoundProvider>
+        <div className=" text-black ">
+          <div className="">
+            <Suspense>{children}</Suspense>
+          </div>
         </div>
-      </div>
+      </SoundProvider>
       {draftMode().isEnabled && <VisualEditing />}
     </>
   )

@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { SoundContext } from '../global/providers'
 
 function SpeakerOff() {
   return (
@@ -61,18 +62,15 @@ function SpeakerOn() {
   )
 }
 export default function Speaker() {
-  const [soundActive, setSoundActive] = useState(true)
+  const { soundActive, setSoundActive } = useContext(SoundContext)
 
-  useEffect(() => {
-    // console.log(soundActive)
-  }, [soundActive])
   const toggleSound = () => {
     setSoundActive(!soundActive)
   }
   return (
     <div className="flex justify-end items-center ">
       <div onClick={toggleSound} className="py-3 pl-3">
-        {soundActive ? <SpeakerOff /> : <SpeakerOn />}
+        {soundActive ? <SpeakerOn /> : <SpeakerOff />}
       </div>
     </div>
   )
