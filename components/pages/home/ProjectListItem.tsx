@@ -7,18 +7,26 @@ import type { ShowcaseProject } from '@/types'
 import Image from 'next/image'
 import { useState } from 'react'
 import BoopButton from '@/components/shared/BoopButton'
+import styles from './styles.module.css'
 
 interface ProjectProps {
   project: ShowcaseProject
   onClick: () => void
   isActive: boolean
+  transformXValue: Number
 }
 
 export function ProjectListItem(props: ProjectProps) {
-  const { project, onClick, isActive } = props
+  const { project, onClick, isActive, transformXValue } = props
 
   return (
-    <div>
+    <div
+      className={`titles big-tablet:will-change-transform ${styles.titles} big-tablet:text-right`}
+      style={{
+        transform: `translateX(${transformXValue}px)`, // Apply the transform here
+        transition: 'transform 0.3s', // Optional: Adds smooth transition for the transform
+      }}
+    >
       <BoopButton>
         <div
           className={`w-auto big-tablet:flex big-tablet:justify-end big-tablet:gap-2 ${

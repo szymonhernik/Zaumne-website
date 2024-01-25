@@ -64,7 +64,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           {showcaseProjects && showcaseProjects.length > 0 && (
             <div
               id="discography"
-              className="snap-start pt-8 mb-48 big-tablet:absolute big-tablet:top-[0] big-tablet:w-auto big-tablet:right-[18vw] big-tablet:text-right big-tablet:pt-[5vh]"
+              className="snap-start pt-8 mb-48 big-tablet:absolute big-tablet:top-[0] big-tablet:w-auto big-tablet:right-[18vw]  big-tablet:pt-[5vh]"
             >
               <h1 className="italic mb-8 big-tablet:hidden">Discography</h1>
               <Discography

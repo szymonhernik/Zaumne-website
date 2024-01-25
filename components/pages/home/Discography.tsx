@@ -5,7 +5,6 @@ import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { ProjectListItem } from './ProjectListItem'
 import { useEffect, useState } from 'react'
 import BoopButton from '@/components/shared/BoopButton'
-import styles from './styles.module.css'
 
 import ImageBox from '@/components/shared/ImageBox'
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
@@ -55,22 +54,18 @@ export default function Discography(props: DiscographyProps) {
           <div
             key={key}
             data-sanity={encodeDataAttribute?.(['showcaseProjects', key])}
-            className={`titles big-tablet:will-change-transform ${styles.titles}`}
-            style={{
-              transform: `translateX(${transformXValue}px)`, // Apply the transform here
-              transition: 'transform 0.3s', // Optional: Adds smooth transition for the transform
-            }}
           >
             <ProjectListItem
               project={project}
               onClick={() => handleProjectClick(key)}
-              isActive={activeIndex === key} // Add this line
+              isActive={activeIndex === key}
+              transformXValue={transformXValue}
             />
             {/* Logic to display content only for the clicked title */}
 
             {activeIndex === key && (
               <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-dvh min-h-dvh bg-white  px-4 pt-10 overflow-scroll pb-16">
-                <div className="sticky top-0">
+                <div className="sticky top-0 ">
                   <BoopButton>
                     <button className="py-2 pr-6" onClick={handleClose}>
                       <span className="italic underline ">back</span>
@@ -105,6 +100,11 @@ export default function Discography(props: DiscographyProps) {
                 {project.quote && (
                   <div className="border-x-[1px] border-black rounded-2xl px-[19px] py-[15px] max-w-md">
                     <CustomPortableText value={project.quote} />
+                  </div>
+                )}
+                {project.productionInfo && (
+                  <div className="max-w-md mt-32  text-sm big-tablet:absolute big-tablet:bottom-4 big-tablet:right-4 big-tablet:text-right big-tablet:mt-0">
+                    <CustomPortableText value={project.productionInfo} />
                   </div>
                 )}
               </div>

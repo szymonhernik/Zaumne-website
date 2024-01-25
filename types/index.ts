@@ -30,6 +30,7 @@ export interface ShowcaseProject {
   highlighted: string
   label: string
   quote?: PortableTextBlock[]
+  productionInfo?: PortableTextBlock[]
 }
 export interface ShowcaseWork {
   _type: string
