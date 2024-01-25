@@ -73,11 +73,14 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               />
             </div>
           )}
-          <div className="big-tablet:max-h-[60dvh] big-tablet:h-[60dvh] big-tablet:mt-[40dvh]  big-tablet:relative big-tablet:overflow-y-scroll big-tablet:border-t-[1px] big-tablet:border-r-[1px] big-tablet:border-black big-tablet:max-w-[40vw] big-tablet:p-4">
+          <div
+            className="
+          big-tablet:max-h-[60dvh] big-tablet:h-[60dvh] big-tablet:mt-[40dvh]  big-tablet:relative big-tablet:overflow-y-scroll big-tablet:border-t-[1px]  big-tablet:border-black big-tablet:max-w-[40vw] big-tablet:px-4  big-tablet:text-sm hidescrollbar"
+          >
             {showcaseWorks && showcaseWorks.length > 0 && (
               <div
                 id="works"
-                className="max-w-md snap-start pt-8 mb-48 big-tablet:absolute big-tablet:top-0 "
+                className="max-w-md snap-start pt-8 mb-48 big-tablet:absolute  big-tablet:top-0 big-tablet:max-w-sm big-tablet:py-16 "
               >
                 <h1 className="italic mb-8 big-tablet:hidden">
                   Selected Works
@@ -91,10 +94,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             {showcaseMixes && showcaseMixes.length > 0 && (
               <div
                 id="mixes"
-                className="snap-start pt-8 mb-48 big-tablet:absolute big-tablet:top-0"
+                className="snap-start pt-8 mb-48 big-tablet:absolute big-tablet:top-0  big-tablet:max-w-sm big-tablet:py-16 big-tablet:hidden"
               >
                 <h1 className="italic mb-8 big-tablet:hidden ">Mixes</h1>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 big-tablet:gap-8">
                   {showcaseMixes.map((mix, key) => {
                     return (
                       <div
@@ -116,9 +119,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           {calendar && calendar.length > 0 && (
             <div
               id="calendar"
-              className="max-w-md snap-start pt-8 big-tablet:absolute big-tablet:bottom-0 big-tablet:right-0"
+              className="max-w-md snap-start pt-8 big-tablet:absolute big-tablet:bottom-0 big-tablet:right-0 big-tablet:max-w-40  "
             >
-              <h1 className="italic mb-8">Calendar</h1>
+              <h1 className="italic mb-8 big-tablet:mb-0 big-tablet:sticky big-tablet:top-0 big-tablet:bg-white">
+                Calendar
+              </h1>
               <Calendar calendar={calendar} />
             </div>
           )}

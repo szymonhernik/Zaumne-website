@@ -1,4 +1,5 @@
 'use client'
+import BoopButton from '@/components/shared/BoopButton'
 import { useState } from 'react'
 
 const sortAndGroupEvents = (events, showAll = false) => {
@@ -8,7 +9,7 @@ const sortAndGroupEvents = (events, showAll = false) => {
   )
 
   // Limit events to two if showAll is false
-  const limitedEvents = showAll ? sortedEvents : sortedEvents.slice(0, 2)
+  const limitedEvents = showAll ? sortedEvents : sortedEvents.slice(0, 5)
 
   // Group events by year and then by month
   const groupEvents = (eventsToGroup) => {
@@ -42,7 +43,7 @@ export default function Calendar({ calendar }) {
       const parsedDate = event.date.split('-').map(String) //[year, month, day]
       return (
         <div key={index} className="my-4 text-xs flex w-full ">
-          <p className="text-zaumne-pink w-24 min-w-24">
+          <p className="text-zaumne-pink w-24 min-w-24 big-tablet:min-w-12 big-tablet:w-12">
             {parsedDate[2]}.{parsedDate[1]}
           </p>
           <div>
@@ -56,23 +57,27 @@ export default function Calendar({ calendar }) {
 
   return (
     <div>
-      {Object.keys(groupedEvents)
-        .map((year) => (
-          <div key={year} className="mt-8 ">
-            <h2 className="italic text-gray-500">{year}</h2>
-            {Object.keys(groupedEvents[year]).map((month) => (
-              <div key={month} className="border-t-[1px] border-gray-500">
-                {renderEvents(groupedEvents[year][month])}
-              </div>
-            ))}
-          </div>
-        ))
-        .reverse()}
-      <div className="border-t-[1px] border-gray-500 p-4">
-        <button onClick={() => setShowAll(!showAll)}>
-          {showAll ? 'Show Less' : 'Show Archive'}
-        </button>
+      <div className="hidescrollbar big-tablet:overflow-y-scroll big-tablet:max-h-[50vh] big-tablet:pr-4">
+        {Object.keys(groupedEvents)
+          .map((year) => (
+            <div key={year} className="mt-8 ">
+              <h2 className="italic text-gray-500">{year}</h2>
+              {Object.keys(groupedEvents[year]).map((month) => (
+                <div key={month} className="border-t-[1px] border-gray-500">
+                  {renderEvents(groupedEvents[year][month])}
+                </div>
+              ))}
+            </div>
+          ))
+          .reverse()}
       </div>
+      <BoopButton>
+        <div className="border-t-[1px] border-gray-500 p-4 big-tablet:text-sm ">
+          <button className="italic" onClick={() => setShowAll(!showAll)}>
+            {showAll ? 'show less' : 'show archive'}
+          </button>
+        </div>
+      </BoopButton>
     </div>
   )
 }
