@@ -13,11 +13,13 @@ interface ProjectProps {
   project: ShowcaseProject
   onClick: () => void
   isActive: boolean
+  isInside?: boolean
+
   transformXValue: Number
 }
 
 export function ProjectListItem(props: ProjectProps) {
-  const { project, onClick, isActive, transformXValue } = props
+  const { project, onClick, isActive, transformXValue, isInside } = props
 
   return (
     <div
@@ -30,8 +32,12 @@ export function ProjectListItem(props: ProjectProps) {
       <BoopButton>
         <div
           className={`w-auto big-tablet:flex big-tablet:justify-end big-tablet:gap-2 ${
-            isActive ? 'hover:cursor-default' : 'hover:cursor-pointer'
-          } ${project.highlighted ? 'opacity-100' : 'opacity-70'}`}
+            isActive
+              ? 'hover:cursor-default !opacity-100'
+              : 'hover:cursor-pointer'
+          }
+          ${isInside ? 'opacity-20' : ''}
+            ${project.highlighted ? 'opacity-100' : 'opacity-70'}`}
           onClick={!isActive ? onClick : undefined} // Apply onClick here
         >
           {/* Title */}
