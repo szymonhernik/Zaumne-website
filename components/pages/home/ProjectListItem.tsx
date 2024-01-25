@@ -27,7 +27,7 @@ export function ProjectListItem(props: ProjectProps) {
           onClick={!isActive ? onClick : undefined} // Apply onClick here
         >
           {/* Title */}
-          <div className="text-3xl big-tablet:text-[2.5rem] w-auto italic	text-zaumne-bordo">
+          <div className="text-3xl big-tablet:text-[2.5rem] 2xl:text-[2.5vw] 2xl:leading-[2.5vw] w-auto italic	text-zaumne-bordo">
             {project.title}
           </div>
           <div className="text-[10px] big-tablet:mt-[-5px] big-tablet:text-base	text-zaumne-bordo">

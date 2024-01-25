@@ -73,7 +73,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               />
             </div>
           )}
-          <div className="big-tablet:max-h-[60dvh] big-tablet:h-[60dvh] big-tablet:mt-[40dvh]  big-tablet:relative big-tablet:overflow-scroll big-tablet:border-t-[1px] big-tablet:border-r-[1px] big-tablet:border-black big-tablet:max-w-md big-tablet:p-4">
+          <div className="big-tablet:max-h-[60dvh] big-tablet:h-[60dvh] big-tablet:mt-[40dvh]  big-tablet:relative big-tablet:overflow-y-scroll big-tablet:border-t-[1px] big-tablet:border-r-[1px] big-tablet:border-black big-tablet:max-w-[40vw] big-tablet:p-4">
             {showcaseWorks && showcaseWorks.length > 0 && (
               <div
                 id="works"

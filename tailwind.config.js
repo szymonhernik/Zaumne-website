@@ -14,6 +14,9 @@ module.exports = {
       boxShadow: {
         zaumne: '0px 6.625px 6.625px 0px rgba(0, 0, 0, 0.25);',
       },
+      fontSize: {
+        'zaumne-title': '3vw',
+      },
     },
     // Overriding fontFamily to use @next/font loaded families
     fontFamily: {
