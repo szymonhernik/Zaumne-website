@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import debounce from 'lodash/debounce'
 import BoopButton from '@/components/shared/BoopButton'
+import Speaker from '@/components/shared/Speaker'
 
 export default function NavBarMobile() {
   const [isVisible, setIsVisible] = useState(true)
@@ -58,11 +59,9 @@ export default function NavBarMobile() {
             <li>calendar</li>
           </a>
         </BoopButton>
-        <BoopButton>
-          <a href="#home" className="">
-            <li className="py-4">↑</li>
-          </a>
-        </BoopButton>
+        <li>
+          <Speaker />
+        </li>
       </ul>
     </div>
   )

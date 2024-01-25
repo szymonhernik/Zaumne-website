@@ -17,7 +17,6 @@ interface ProjectProps {
 export function ProjectListItem(props: ProjectProps) {
   const { project, onClick, isActive } = props
 
-  console.log(isActive)
   return (
     <div>
       <BoopButton>
