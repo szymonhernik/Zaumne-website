@@ -65,6 +65,12 @@ export default function Discography(props: DiscographyProps) {
 
             {activeIndex === key && (
               <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-dvh min-h-dvh bg-white  px-4 pt-10 overflow-scroll pb-16">
+                <ProjectListItem
+                  project={project}
+                  onClick={() => handleProjectClick(key)}
+                  isActive={activeIndex === key}
+                  transformXValue={transformXValue}
+                />
                 <div className="sticky top-0 ">
                   <BoopButton>
                     <button className="py-2 pr-6" onClick={handleClose}>
