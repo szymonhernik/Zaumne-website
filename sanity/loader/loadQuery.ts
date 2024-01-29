@@ -76,6 +76,6 @@ export function loadHomePage() {
   return loadQuery<CombinedHomePagePayload>(
     homePageQuery,
     {},
-    { next: { tags: ['home', 'project', 'discography'] } },
+    { next: { tags: ['home', 'calendar'] } },
   )
 }
