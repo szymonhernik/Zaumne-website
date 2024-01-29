@@ -67,7 +67,7 @@ export default function Discography(props: DiscographyProps) {
             {/* Logic to display content only for the clicked title */}
 
             {activeIndex === key && (
-              <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-dvh min-h-dvh bg-white  px-4 pt-10 overflow-y-scroll pb-16">
+              <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-dvh min-h-dvh bg-white px-4 pt-10 overflow-y-scroll pb-16 overscroll-none">
                 <div className="hidden big-tablet:fixed big-tablet:top-[0] big-tablet:w-auto big-tablet:right-[18vw]  big-tablet:pt-[5vh] big-tablet:flex big-tablet:flex-col big-tablet:gap-4 big-tablet:z-[-1] ">
                   {showcaseProjects.map((project, index) => (
                     <ProjectListItem
