@@ -2,9 +2,9 @@
 
 import { type QueryResponseInitial } from '@sanity/react-loader'
 
-import { calendarQuery, homePageQuery } from '@/sanity/lib/queries'
+import { homePageQuery } from '@/sanity/lib/queries'
 import { useQuery } from '@/sanity/loader/useQuery'
-import { CalendarData, CombinedHomePagePayload, HomePagePayload } from '@/types'
+import { CombinedHomePagePayload } from '@/types'
 
 import HomePage from './HomePage'
 

@@ -62,7 +62,7 @@ export default function Calendar({ calendar }) {
           .map((year) => (
             <div key={year} className="mt-8 ">
               <h2 className="italic text-gray-500">{year}</h2>
-              {Object.keys(groupedEvents[year]).map((month) => (
+              {Object.keys(groupedEvents[year]).map((month, key) => (
                 <div key={month} className="border-t-[1px] border-gray-500">
                   {renderEvents(groupedEvents[year][month])}
                 </div>

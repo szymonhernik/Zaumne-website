@@ -85,6 +85,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           <div className="hidden big-tablet:flex flex-col z-[-1] justify-between pt-48 pb-4 ml-[40vw] border-l-[1px] absolute border-black h-[calc(100vh-4rem)] my-8">
             {Array.from({ length: 5 }, (_, index) => (
               <svg
+                key={index}
                 width="23"
                 height="5"
                 viewBox="0 0 23 5"
