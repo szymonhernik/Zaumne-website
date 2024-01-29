@@ -68,7 +68,7 @@ export default function Discography(props: DiscographyProps) {
 
             {activeIndex === key && (
               <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-dvh min-h-dvh bg-white  px-4 pt-10 overflow-scroll pb-16">
-                <div className="hidden big-tablet:absolute big-tablet:top-[0] big-tablet:w-auto big-tablet:right-[18vw]  big-tablet:pt-[5vh] big-tablet:flex big-tablet:flex-col big-tablet:gap-4 big-tablet:z-[-1] big-tablet:pr-4">
+                <div className="hidden big-tablet:absolute big-tablet:top-[0] big-tablet:w-auto big-tablet:right-[18vw]  big-tablet:pt-[5vh] big-tablet:flex big-tablet:flex-col big-tablet:gap-4 big-tablet:z-[-1] ">
                   {showcaseProjects.map((project, index) => (
                     <ProjectListItem
                       key={index}

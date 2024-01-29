@@ -31,13 +31,15 @@ export function ProjectListItem(props: ProjectProps) {
     >
       <BoopButton>
         <div
-          className={`w-auto big-tablet:flex big-tablet:justify-end big-tablet:gap-2 ${
+          className={`w-auto big-tablet:flex big-tablet:justify-end big-tablet:gap-2 
+          ${
             isActive
               ? 'hover:cursor-default !opacity-100'
               : 'hover:cursor-pointer'
           }
-          ${isInside ? 'opacity-20' : ''}
-            ${project.highlighted ? 'opacity-100' : 'opacity-70'}`}
+          ${isInside ? 'opacity-20' : project.highlighted ? 'opacity-100' : 'opacity-70'}
+
+          `}
           onClick={!isActive ? onClick : undefined} // Apply onClick here
         >
           {/* Title */}
