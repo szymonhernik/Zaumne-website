@@ -7,6 +7,7 @@ import ZaumneLogo from '@/components/shared/ZaumneLogo'
 import { Works } from './Works'
 import NavBarMobile from './NavBarMobile'
 import Discography from './Discography'
+import WorksMixesGroup from './WorksMixesGroup'
 
 export interface HomePageProps {
   data: {
@@ -73,47 +74,16 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               />
             </div>
           )}
+          <div className="hidden big-tablet:block ml-[40vw] border-r-[1px] absolute border-black h-[calc(100vh-4rem)] my-8"></div>
           <div
-            className=" snap-start  
+            className="snap-start  
           big-tablet:max-h-[60dvh] big-tablet:h-[60dvh] big-tablet:mt-[40dvh]  big-tablet:relative big-tablet:overflow-y-scroll big-tablet:border-t-[1px]  big-tablet:border-black big-tablet:max-w-[40vw] big-tablet:px-4  big-tablet:text-sm hidescrollbar"
           >
-            {showcaseWorks && showcaseWorks.length > 0 && (
-              <div
-                id="works"
-                className="max-w-md  pt-8 mb-48 big-tablet:absolute  big-tablet:top-0 big-tablet:max-w-sm big-tablet:py-16 "
-              >
-                <h1 className="italic mb-8 big-tablet:hidden">
-                  Selected Works
-                </h1>
-                <Works
-                  showcaseWorks={showcaseWorks}
-                  encodeDataAttribute={encodeDataAttribute}
-                />
-              </div>
-            )}
-            {showcaseMixes && showcaseMixes.length > 0 && (
-              <div
-                id="mixes"
-                className="snap-start   pt-8 mb-48 big-tablet:absolute big-tablet:top-0  big-tablet:max-w-sm big-tablet:py-16 big-tablet:hidden"
-              >
-                <h1 className="italic mb-8 big-tablet:hidden ">Mixes</h1>
-                <div className="flex flex-col gap-4 big-tablet:gap-8">
-                  {showcaseMixes.map((mix, key) => {
-                    return (
-                      <div
-                        key={key}
-                        data-sanity={encodeDataAttribute?.([
-                          'showcaseMixes',
-                          key,
-                        ])}
-                      >
-                        <MixListItem mix={mix} />
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
+            <WorksMixesGroup
+              showcaseMixes={showcaseMixes}
+              showcaseWorks={showcaseWorks}
+              encodeDataAttribute={encodeDataAttribute}
+            />
           </div>
 
           {calendar && calendar.length > 0 && (
