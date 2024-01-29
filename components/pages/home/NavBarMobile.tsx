@@ -10,10 +10,8 @@ export default function NavBarMobile() {
   const lastScrollTop = useRef(0)
 
   useEffect(() => {
-    const container = document.getElementById('container') // Replace 'container' with the actual ID of your container element
-
     const handleScroll = () => {
-      const st = container?.scrollTop ?? 0
+      const st = window.scrollY || document.documentElement.scrollTop
 
       if (st > lastScrollTop.current) {
         setIsVisible(false)
@@ -26,8 +24,8 @@ export default function NavBarMobile() {
     }
     const debouncedHandleScroll = debounce(handleScroll, 100)
 
-    container?.addEventListener('scroll', debouncedHandleScroll)
-    return () => container?.removeEventListener('scroll', debouncedHandleScroll)
+    window.addEventListener('scroll', debouncedHandleScroll)
+    return () => window.removeEventListener('scroll', debouncedHandleScroll)
   }, [])
   return (
     <div
