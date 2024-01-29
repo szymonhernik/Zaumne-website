@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { MixListItem } from './MixListItem'
 import { Works } from './Works'
+import BoopButton from '@/components/shared/BoopButton'
 
 export default function WorksMixesGroup({
   showcaseWorks,
@@ -16,19 +17,23 @@ export default function WorksMixesGroup({
 
   return (
     <>
-      <ul className="hidden big-tablet:flex sticky ml-auto right-0 top-0 justify-end gap-2  w-fit p-3 pr-0 text-gray-500 z-[10] cursor-pointer">
-        <li
-          onClick={() => handleTabClick('works')}
-          className={`${activeTab === 'works' ? 'text-black' : ''}`}
-        >
-          Selected Works
-        </li>
-        <li
-          onClick={() => handleTabClick('mixes')}
-          className={`${activeTab === 'mixes' ? 'text-black' : ''}`}
-        >
-          Mixes
-        </li>
+      <ul className="hidden big-tablet:flex sticky ml-auto right-0 top-0 justify-end gap-2  w-fit p-3 pr-0 text-gray-500 z-[3] cursor-pointer">
+        <BoopButton>
+          <li
+            onClick={() => handleTabClick('works')}
+            className={`${activeTab === 'works' ? 'text-black' : ''}`}
+          >
+            Selected Works
+          </li>
+        </BoopButton>
+        <BoopButton>
+          <li
+            onClick={() => handleTabClick('mixes')}
+            className={`${activeTab === 'mixes' ? 'text-black' : ''}`}
+          >
+            Mixes
+          </li>
+        </BoopButton>
       </ul>
       {showcaseWorks && showcaseWorks.length > 0 && (
         <div

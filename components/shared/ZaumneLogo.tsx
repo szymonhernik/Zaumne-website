@@ -6,6 +6,7 @@ export default function ZaumneLogo() {
         height="21"
         viewBox="0 0 97 21"
         fill="none"
+        className="big-tablet:w-[120px] big-tablet:h-[30px]"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

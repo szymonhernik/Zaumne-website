@@ -8,6 +8,10 @@ import { Works } from './Works'
 import NavBarMobile from './NavBarMobile'
 import Discography from './Discography'
 import WorksMixesGroup from './WorksMixesGroup'
+import Speaker from '@/components/shared/Speaker'
+import BoopButton from '@/components/shared/BoopButton'
+import Colophon from './Colophon'
+import Drawings from './Drawings'
 
 export interface HomePageProps {
   data: {
@@ -33,8 +37,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     <>
       <div
         id="container"
-        className=" sm:h-screen scroll-smooth  overflow-x-visible  font-normal flex flex-col gap-y-10 pb-64 big-tablet:pb-0 px-4 relative w-screen z-[0] "
+        className=" sm:h-screen scroll-smooth   font-normal flex flex-col gap-y-10 pb-64 big-tablet:pb-0 px-4 relative w-screen z-[0] "
       >
+        <div className="hidden big-tablet:block big-tablet:fixed  big-tablet:right-0 big-tablet:top-0 p-4 z-[3] cursor-pointer">
+          <Speaker />
+        </div>
         <NavBarMobile />
         <div
           id="home"
@@ -61,6 +68,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         </div>
         {/* <About description={aboutDescription} /> */}
         <div className="snap-start  big-tablet:relative big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:w-dvh  ">
+          <Drawings />
           {/* Showcase projects */}
           {showcaseProjects && showcaseProjects.length > 0 && (
             <div
@@ -74,7 +82,26 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               />
             </div>
           )}
-          <div className="hidden big-tablet:block ml-[40vw] border-r-[1px] absolute border-black h-[calc(100vh-4rem)] my-8"></div>
+          <div className="hidden big-tablet:flex flex-col z-[-1] justify-between pt-48 pb-4 ml-[40vw] border-l-[1px] absolute border-black h-[calc(100vh-4rem)] my-8">
+            {Array.from({ length: 5 }, (_, index) => (
+              <svg
+                width="23"
+                height="5"
+                viewBox="0 0 23 5"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line
+                  opacity="0.5"
+                  x1="22.0154"
+                  y1="4.49126"
+                  x2="0.906954"
+                  y2="0.491257"
+                  stroke="black"
+                />
+              </svg>
+            ))}
+          </div>
           <div
             className="snap-start  
           big-tablet:max-h-[60dvh] big-tablet:h-[60dvh] big-tablet:mt-[40dvh]  big-tablet:relative big-tablet:overflow-y-scroll big-tablet:border-t-[1px]  big-tablet:border-black big-tablet:max-w-[40vw] big-tablet:px-4  big-tablet:text-sm hidescrollbar"
@@ -89,7 +116,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           {calendar && calendar.length > 0 && (
             <div
               id="calendar"
-              className="snap-start   max-w-md  pt-8 big-tablet:absolute big-tablet:bottom-0 big-tablet:right-0 big-tablet:max-w-40  "
+              className="snap-start  mb-48 big-tablet:mb-0 max-w-md  pt-8 big-tablet:absolute big-tablet:bottom-0 big-tablet:right-0 big-tablet:max-w-40  "
             >
               <h1 className="italic mb-8 big-tablet:mb-0 big-tablet:sticky big-tablet:top-0 big-tablet:bg-white">
                 Calendar
@@ -97,6 +124,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               <Calendar calendar={calendar} />
             </div>
           )}
+          <div className="pt-8 mb-12 italic big-tablet:absolute big-tablet:top-0 text-sm ">
+            <Colophon />
+          </div>
         </div>
       </div>
     </>
