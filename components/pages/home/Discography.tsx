@@ -67,7 +67,7 @@ export default function Discography(props: DiscographyProps) {
             {/* Logic to display content only for the clicked title */}
 
             {activeIndex === key && (
-              <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-dvh min-h-dvh bg-white px-4 pt-10 overflow-y-scroll pb-16 overscroll-none">
+              <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-dvh min-h-dvh bg-white px-4 pt-10 overflow-y-scroll big-tablet:overflow-y-none pb-16 overscroll-none ">
                 <div className="hidden big-tablet:fixed big-tablet:top-[0] big-tablet:w-auto big-tablet:right-[18vw]  big-tablet:pt-[5vh] big-tablet:flex big-tablet:flex-col big-tablet:gap-4 big-tablet:z-[-1] ">
                   {showcaseProjects.map((project, index) => (
                     <ProjectListItem
@@ -87,7 +87,7 @@ export default function Discography(props: DiscographyProps) {
                     </button>
                   </BoopButton>
                 </div>
-                <h1 className="italic text-zaumne-bordo mt-8">
+                <h1 className="italic text-zaumne-bordo mt-8 w-fit">
                   {project.title}
                   <span className="not-italic text-black">
                     , {project.label} ({project.date})
@@ -99,16 +99,18 @@ export default function Discography(props: DiscographyProps) {
                   </a>
                 </BoopButton>
                 {/* <Image /> */}
-                <div className="w-[80vw] sm:max-w-md flex mx-auto mt-16 mb-16  ">
-                  <ImageBox
-                    classesWrapper="w-full"
-                    classesImage="shadow-zaumne mx-auto"
-                    image={project.coverImage}
-                    alt={`${project.coverImage?.alt ?? ''}`}
-                  />
+                <div className="w-[80vw] sm:max-w-md big-tablet:max-w-[30vw] 2xl:max-w-md flex mx-auto mt-16 mb-16  ">
+                  <a target="_blank" href={project.link} className="w-full">
+                    <ImageBox
+                      classesWrapper="w-full"
+                      classesImage="shadow-zaumne mx-auto"
+                      image={project.coverImage}
+                      alt={`${project.coverImage?.alt ?? ''}`}
+                    />
+                  </a>
                 </div>
                 {project.quote && (
-                  <div className="border-x-[1px] border-black rounded-2xl px-[19px] py-[15px] max-w-md">
+                  <div className="border-x-[1px] border-black rounded-2xl px-[19px] py-[15px] max-w-md big-tablet:max-w-[30vw] big-tablet:fixed big-tablet:bottom-4 big-tablet:left-4">
                     <CustomPortableText value={project.quote} />
                   </div>
                 )}

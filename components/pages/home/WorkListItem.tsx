@@ -35,7 +35,15 @@ function TextBox({
         <div
           className={`italic text-zaumne-blue  ${work.highlighted ? 'opacity-100' : 'opacity-60'}`}
         >
-          {work.title}
+          {work.link ? (
+            <BoopButton>
+              <a target="_blank" href={work.link} className="hover:underline">
+                {work.title}
+              </a>
+            </BoopButton>
+          ) : (
+            <>{work.title}</>
+          )}
         </div>
         {work.workDetails && <CustomPortableText value={work.workDetails} />}
         {work.highlighted == true && (

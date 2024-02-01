@@ -45,7 +45,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         </div>
         <BoopButton>
           <a href="#home">
-            <div className="big-tablet:hidden fixed bottom-0 right-0 p-8 text-lg z-[100]">
+            <div className="big-tablet:hidden fixed bottom-0 right-0 p-8 text-lg z-[9]">
               ↑
             </div>
           </a>

@@ -23,6 +23,7 @@ export const homePageQuery = groq`
       workDetails,
       workDescription,
       highlighted,
+      link,
       title
     },
     showcaseMixes[]->{

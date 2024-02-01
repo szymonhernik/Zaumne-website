@@ -9,7 +9,7 @@ const sortAndGroupEvents = (events, showAll = false) => {
   )
 
   // Limit events to two if showAll is false
-  const limitedEvents = showAll ? sortedEvents : sortedEvents.slice(0, 5)
+  const limitedEvents = showAll ? sortedEvents : sortedEvents.slice(0, 4)
 
   // Group events by year and then by month
   const groupEvents = (eventsToGroup) => {
@@ -35,11 +35,15 @@ const sortAndGroupEvents = (events, showAll = false) => {
 export default function Calendar({ calendar }) {
   const [showAll, setShowAll] = useState(false)
   const groupedEvents = sortAndGroupEvents(calendar, showAll)
+  // console.log(calendar)
 
   const renderEvents = (events) => {
     // If showAll is false, slice the array to show only two latest events
 
     return events.map((event, index) => {
+      {
+        event.link && console.log('event link', event.link)
+      }
       const parsedDate = event.date.split('-').map(String) //[year, month, day]
       return (
         <div key={index} className="my-4 text-xs flex w-full ">
@@ -48,7 +52,19 @@ export default function Calendar({ calendar }) {
           </p>
           <div>
             <p className="uppercase">{event.title}</p>
-            <p className="text-zaumne-blue">({event.city})</p>
+            {event.link ? (
+              <span className="flex">
+                (
+                <BoopButton>
+                  <a target="_blank" href={event.link} className="underline">
+                    <p className="text-zaumne-blue">{event.city}</p>
+                  </a>
+                </BoopButton>
+                )
+              </span>
+            ) : (
+              <p className="text-zaumne-blue">({event.city})</p>
+            )}
           </div>
         </div>
       )

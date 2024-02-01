@@ -39,6 +39,7 @@ export interface ShowcaseWork {
   workDescription?: PortableTextBlock[]
   highlighted?: boolean
   title?: string
+  link?: string
 }
 export interface ShowcaseMix {
   _type: string

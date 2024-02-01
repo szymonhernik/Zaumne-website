@@ -53,7 +53,7 @@ export function Works(props: WorksProps) {
                 work={work}
               />
               {key === activeIndex && (
-                <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-dvh min-h-dvh bg-white  px-4 pt-10 overflow-scroll pb-16">
+                <div className="fixed z-[10] top-0 left-0 w-screen min-w-screen h-dvh min-h-dvh bg-white  px-4 pt-10 overflow-y-scroll pb-16 overscroll-none">
                   <div className="sticky top-0 big-tablet:max-w-md">
                     <BoopButton>
                       <button className="py-2 pr-6" onClick={handleClose}>
@@ -67,7 +67,7 @@ export function Works(props: WorksProps) {
                   )}
 
                   {work.coverImage && (
-                    <div className="w-[80vw] sm:max-w-md flex mx-auto mt-16 mb-16 ">
+                    <div className="w-[80vw] sm:max-w-md big-tablet:max-w-[30vw] 2xl:max-w-md flex mx-auto mt-16 mb-16 ">
                       <ImageBox
                         classesWrapper="w-full"
                         classesImage="mx-auto"
@@ -77,7 +77,7 @@ export function Works(props: WorksProps) {
                     </div>
                   )}
                   {work.workDescription && (
-                    <div className="border-x-[1px] border-black rounded-2xl px-[19px] py-[15px] max-w-md">
+                    <div className="border-x-[1px] border-black rounded-2xl px-[19px] py-[15px] max-w-md big-tablet:max-w-[30vw] big-tablet:fixed big-tablet:bottom-4 big-tablet:left-4">
                       <CustomPortableText value={work.workDescription} />
                     </div>
                   )}
