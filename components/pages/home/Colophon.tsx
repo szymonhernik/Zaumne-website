@@ -7,12 +7,14 @@ export default function Colophon() {
 
   return (
     <>
-      <h3
-        className="hover:underline cursor-default"
-        onClick={() => setClicked(!clicked)}
-      >
-        Colophon
-      </h3>
+      <BoopButton>
+        <h3
+          className="hover:underline cursor-default"
+          onClick={() => setClicked(!clicked)}
+        >
+          Colophon
+        </h3>
+      </BoopButton>
       <p className={`${clicked ? 'big-tablet:block' : 'big-tablet:hidden'}`}>
         Website by{' '}
         <BoopButton>
