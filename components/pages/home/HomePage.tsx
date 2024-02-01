@@ -38,7 +38,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     <>
       <div
         id="home"
-        className=" sm:h-screen scroll-smooth   font-normal flex flex-col gap-y-10 pb-64 big-tablet:pb-0 px-4 relative w-screen z-[0] "
+        className=" sm:h-screen scroll-smooth  overflow-x-hidden  font-normal flex flex-col gap-y-10 pb-0 big-tablet:pb-0 px-4 relative w-screen z-[0] "
       >
         <div className="absolute right-2 big-tablet:block big-tablet:fixed  big-tablet:right-0 big-tablet:top-0 p-4 z-[3] cursor-pointer">
           <Speaker />
@@ -75,7 +75,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           </div>
         </div>
         {/* <About description={aboutDescription} /> */}
-        <div className="big-tablet:relative big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:w-dvh  ">
+        <div className="big-tablet:relative big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:h-dvh  ">
           <Drawings />
           {/* Showcase projects */}
           {showcaseProjects && showcaseProjects.length > 0 && (
@@ -130,7 +130,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               <Calendar calendar={calendar} />
             </div>
           )}
-          <div className="pt-8 mb-12 italic big-tablet:absolute big-tablet:top-0 text-sm ">
+          <div className="pt-8 mb-8 italic big-tablet:absolute big-tablet:top-0 text-sm ">
             <Colophon />
           </div>
         </div>
