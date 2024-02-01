@@ -38,7 +38,7 @@ export default function WorksMixesGroup({
       {showcaseWorks && showcaseWorks.length > 0 && (
         <div
           id="works"
-          className={`max-w-md  pt-8 mb-48 big-tablet:absolute  big-tablet:top-0 big-tablet:max-w-sm big-tablet:py-16   ${
+          className={`max-w-md  pt-8 mb-8 big-tablet:absolute  big-tablet:top-0 big-tablet:max-w-sm big-tablet:py-16   ${
             activeTab === 'works' ? 'big-tablet:block' : 'big-tablet:hidden'
           }`}
         >
@@ -52,7 +52,7 @@ export default function WorksMixesGroup({
       {showcaseMixes && showcaseMixes.length > 0 && (
         <div
           id="mixes"
-          className={`snap-start pt-8 mb-48 big-tablet:absolute big-tablet:top-0  big-tablet:max-w-sm big-tablet:py-16  ${
+          className={`snap-start pt-8 mb-8 big-tablet:absolute big-tablet:top-0  big-tablet:max-w-sm big-tablet:py-16  ${
             activeTab === 'mixes' ? 'big-tablet:block' : 'big-tablet:hidden'
           }`}
         >

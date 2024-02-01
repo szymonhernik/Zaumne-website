@@ -86,23 +86,18 @@ export default function Discography(props: DiscographyProps) {
                       <span className="italic underline ">back</span>
                     </button>
                   </BoopButton>
-                  <h1 className="italic text-zaumne-bordo mt-8">
-                    {project.title}
-                    <span className="not-italic text-black">
-                      , {project.label} ({project.date})
-                    </span>
-                  </h1>
-                  <BoopButton>
-                    <a
-                      target="_blank"
-                      href={project.link}
-                      className="underline"
-                    >
-                      listen
-                    </a>
-                  </BoopButton>
                 </div>
-
+                <h1 className="italic text-zaumne-bordo mt-8">
+                  {project.title}
+                  <span className="not-italic text-black">
+                    , {project.label} ({project.date})
+                  </span>
+                </h1>
+                <BoopButton>
+                  <a target="_blank" href={project.link} className="underline">
+                    listen
+                  </a>
+                </BoopButton>
                 {/* <Image /> */}
                 <div className="w-[80vw] sm:max-w-md flex mx-auto mt-16 mb-16  ">
                   <ImageBox

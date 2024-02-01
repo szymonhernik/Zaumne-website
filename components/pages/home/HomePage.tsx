@@ -37,13 +37,20 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   return (
     <>
       <div
-        id="container"
+        id="home"
         className=" sm:h-screen scroll-smooth   font-normal flex flex-col gap-y-10 pb-64 big-tablet:pb-0 px-4 relative w-screen z-[0] "
       >
-        <div className="hidden big-tablet:block big-tablet:fixed  big-tablet:right-0 big-tablet:top-0 p-4 z-[3] cursor-pointer">
+        <div className="absolute right-2 big-tablet:block big-tablet:fixed  big-tablet:right-0 big-tablet:top-0 p-4 z-[3] cursor-pointer">
           <Speaker />
         </div>
-        <NavBarMobile />
+        <BoopButton>
+          <a href="#home">
+            <div className="big-tablet:hidden fixed bottom-0 right-0 p-8 text-lg z-[100]">
+              ↑
+            </div>
+          </a>
+        </BoopButton>
+        {/* <NavBarMobile /> */}
         <div
           id="home"
           className="zaumne-logo min-h-[600px] sm:h-screen w-full flex justify-center items-center  big-tablet:fixed  big-tablet:min-h-4 big-tablet:h-auto big-tablet:bottom-[15dvh] big-tablet:right-[30dvw] big-tablet:w-auto"
@@ -53,7 +60,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
         <div
           id="info"
-          className="snap-start mb-48 big-tablet:mb-0 big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:h-dvh  big-tablet:flex big-tablet:flex-col big-tablet:justify-between "
+          className=" mb-16 big-tablet:mb-0 big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:h-dvh  big-tablet:flex big-tablet:flex-col big-tablet:justify-between "
         >
           <div className="h-[400px] big-tablet:h-auto">
             <div className="socials sticky top-0 py-4">
@@ -68,13 +75,13 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           </div>
         </div>
         {/* <About description={aboutDescription} /> */}
-        <div className="snap-start  big-tablet:relative big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:w-dvh  ">
+        <div className="big-tablet:relative big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:w-dvh  ">
           <Drawings />
           {/* Showcase projects */}
           {showcaseProjects && showcaseProjects.length > 0 && (
             <div
               id="discography"
-              className=" pt-8 mb-48 big-tablet:absolute big-tablet:top-[0] big-tablet:w-auto big-tablet:right-[18vw]  big-tablet:pt-[5vh]"
+              className=" pt-8 mb-8 big-tablet:absolute big-tablet:top-[0] big-tablet:w-auto big-tablet:right-[18vw]  big-tablet:pt-[5vh]"
             >
               <h1 className="italic mb-8 big-tablet:hidden">Discography</h1>
               <Discography
@@ -104,10 +111,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               </svg>
             ))}
           </div>
-          <div
-            className="snap-start  
-          big-tablet:max-h-[60dvh] big-tablet:h-[60dvh] big-tablet:mt-[40dvh]  big-tablet:relative big-tablet:overflow-y-scroll big-tablet:border-t-[1px]  big-tablet:border-black big-tablet:max-w-[40vw] big-tablet:px-4  big-tablet:text-sm hidescrollbar"
-          >
+          <div className="big-tablet:max-h-[60dvh] big-tablet:h-[60dvh] big-tablet:mt-[40dvh]  big-tablet:relative big-tablet:overflow-y-scroll big-tablet:border-t-[1px]  big-tablet:border-black big-tablet:max-w-[40vw] big-tablet:px-4  big-tablet:text-sm hidescrollbar">
             <WorksMixesGroup
               showcaseMixes={showcaseMixes}
               showcaseWorks={showcaseWorks}
@@ -118,7 +122,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           {calendar && calendar.length > 0 && (
             <div
               id="calendar"
-              className="snap-start  mb-48 big-tablet:mb-0 max-w-md  pt-8 big-tablet:absolute big-tablet:bottom-0 big-tablet:right-0 big-tablet:max-w-40  "
+              className="mb-48 big-tablet:mb-0 max-w-md  pt-8 big-tablet:absolute big-tablet:bottom-0 big-tablet:right-0 big-tablet:max-w-40  "
             >
               <h1 className="italic mb-8 big-tablet:mb-0 big-tablet:sticky big-tablet:top-0 big-tablet:bg-white">
                 Calendar

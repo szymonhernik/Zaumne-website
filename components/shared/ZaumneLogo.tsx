@@ -2,8 +2,8 @@ export default function ZaumneLogo() {
   return (
     <div>
       <svg
-        width="97"
-        height="21"
+        width="120"
+        height="40"
         viewBox="0 0 97 21"
         fill="none"
         className="big-tablet:w-[120px] big-tablet:h-[30px]"

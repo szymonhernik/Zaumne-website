@@ -17,6 +17,11 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'link',
+      title: 'Link to event',
+      type: 'url',
+    }),
+    defineField({
       name: 'workDetails',
       title: 'Details',
       description: 'ex: Type of work in collaboration with Name, Place (Year)',

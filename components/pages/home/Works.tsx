@@ -60,13 +60,11 @@ export function Works(props: WorksProps) {
                         <span className="italic underline">back</span>
                       </button>
                     </BoopButton>
-                    <h1 className="italic text-zaumne-blue mt-8">
-                      {work.title}
-                    </h1>
-                    {work.workDetails && (
-                      <CustomPortableText value={work.workDetails} />
-                    )}
                   </div>
+                  <h1 className="italic text-zaumne-blue mt-8">{work.title}</h1>
+                  {work.workDetails && (
+                    <CustomPortableText value={work.workDetails} />
+                  )}
 
                   {work.coverImage && (
                     <div className="w-[80vw] sm:max-w-md flex mx-auto mt-16 mb-16 ">

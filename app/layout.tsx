@@ -35,7 +35,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${c059.className} m-0 p-0 box-border scroll-smooth	snap-y snap-proximity`}
+      className={`${c059.className} m-0 p-0 box-border scroll-smooth`}
     >
       <body>{children}</body>
     </html>
