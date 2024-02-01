@@ -20,9 +20,7 @@ import works from './sanity/schemas/documents/works'
 import mixes from './sanity/schemas/documents/mixes'
 import calendar from './sanity/schemas/documents/calendar'
 
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  'Next.js Personal Website with Sanity.io'
+const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Zaumne'
 
 export default defineConfig({
   basePath: studioUrl,

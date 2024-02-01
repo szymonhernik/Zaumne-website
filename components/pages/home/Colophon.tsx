@@ -4,7 +4,6 @@ import { useState } from 'react'
 
 export default function Colophon() {
   const [clicked, setClicked] = useState(false)
-  console.log(clicked)
 
   return (
     <>
