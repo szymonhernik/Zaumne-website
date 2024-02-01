@@ -38,10 +38,19 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     <>
       <div
         id="home"
-        className=" sm:h-screen scroll-smooth  overflow-x-hidden  font-normal flex flex-col gap-y-10 pb-0 big-tablet:pb-0 px-4 relative w-screen z-[0] "
+        className=" sm:h-screen scroll-smooth  overflow-x-hidden  font-normal flex flex-col gap-y-10 big-tablet:gap-y-0 pb-0 big-tablet:pb-0 px-4 relative w-screen z-[0] "
       >
-        <div className="absolute right-2 big-tablet:block big-tablet:fixed  big-tablet:right-0 big-tablet:top-0 p-4 z-[3] cursor-pointer">
+        <div className="absolute right-2 big-tablet:block big-tablet:fixed  big-tablet:right-2 big-tablet:top-0 p-4 z-[12] cursor-pointer">
           <Speaker />
+        </div>
+        <div className="hidden big-tablet:block big-tablet:absolute big-tablet:top-16 right-2 z-[4]">
+          <a href="#work">
+            <p className="text-right leading-4 p-2 text-sm underline font-bold italic">
+              Discover
+              <br />
+              more
+            </p>
+          </a>
         </div>
         <BoopButton>
           <a href="#home">
@@ -75,7 +84,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           </div>
         </div>
         {/* <About description={aboutDescription} /> */}
-        <div className="big-tablet:relative big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:h-dvh  ">
+        <div
+          id="work"
+          className="big-tablet:relative big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:h-dvh  "
+        >
           <Drawings />
           {/* Showcase projects */}
           {showcaseProjects && showcaseProjects.length > 0 && (
