@@ -2,7 +2,7 @@
 import { ShowcaseWork } from '@/types'
 import { WorkListItem } from './WorkListItem'
 import { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import BoopButton from '@/components/shared/BoopButton'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import ImageBox from '@/components/shared/ImageBox'
@@ -16,11 +16,16 @@ interface WorksProps {
 export function Works(props: WorksProps) {
   const { showcaseWorks, encodeDataAttribute } = props
   const [showAll, setShowAll] = useState(true)
+  const [isShowAllButtonClicked, setIsShowAllButtonClicked] = useState(false) // New state variable
+
   const [activeIndex, setActiveIndex] = useState(null)
 
   // Debounce callback for checking screen size
   const debouncedCheckScreenSize = useDebouncedCallback(() => {
-    setShowAll(window.innerWidth > 926)
+    //if show more was clicked this shouldn't execute unless the window.innerWidth > 926
+    if (!isShowAllButtonClicked || window.innerWidth > 926) {
+      setShowAll(window.innerWidth > 926)
+    }
   }, 100)
 
   useEffect(() => {
@@ -36,6 +41,11 @@ export function Works(props: WorksProps) {
   }
   const handleShowMore = (index) => {
     setActiveIndex(index)
+  }
+
+  const toggleShowAll = () => {
+    setIsShowAllButtonClicked(!isShowAllButtonClicked) // Update the state when the button is clicked
+    setShowAll(!showAll)
   }
 
   return (
@@ -88,7 +98,7 @@ export function Works(props: WorksProps) {
         })}
       <div className="border-t-[1px] border-gray-500 p-4 big-tablet:hidden">
         <BoopButton>
-          <button onClick={() => setShowAll(!showAll)}>
+          <button onClick={toggleShowAll}>
             {showAll ? 'Show Less' : 'Show All'}
           </button>
         </BoopButton>
