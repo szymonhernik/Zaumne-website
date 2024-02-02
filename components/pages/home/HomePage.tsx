@@ -44,13 +44,15 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           <Speaker />
         </div>
         <div className="hidden big-tablet:block big-tablet:absolute big-tablet:top-16 right-2 z-[4]">
-          <a href="#work">
-            <p className="text-right leading-4 p-2 text-sm underline font-bold italic">
-              Discover
-              <br />
-              more
-            </p>
-          </a>
+          <BoopButton>
+            <a href="#work">
+              <p className="text-right leading-4 p-2 text-sm underline font-bold italic">
+                Discover
+                <br />
+                more
+              </p>
+            </a>
+          </BoopButton>
         </div>
         <BoopButton>
           <a href="#home">
