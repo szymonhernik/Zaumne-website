@@ -38,7 +38,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     <>
       <div
         id="home"
-        className=" sm:h-screen scroll-smooth  overflow-x-hidden  font-normal flex flex-col gap-y-10 big-tablet:gap-y-0 pb-0 big-tablet:pb-0 px-4 relative w-screen z-[0] "
+        className=" sm:h-screen scroll-smooth    font-normal flex flex-col gap-y-10 big-tablet:gap-y-0 pb-0 big-tablet:pb-0 px-4 relative w-screen z-[0] "
       >
         <div className="absolute right-2 big-tablet:block big-tablet:fixed  big-tablet:right-2 big-tablet:top-0 p-4 z-[12] cursor-pointer">
           <Speaker />
@@ -74,7 +74,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           className=" mb-16 big-tablet:mb-0 big-tablet:max-h-dvh big-tablet:min-h-dvh big-tablet:h-dvh  big-tablet:flex big-tablet:flex-col big-tablet:justify-between "
         >
           <div className="h-[400px] big-tablet:h-auto">
-            <div className="socials sticky top-0 py-4">
+            <div className="socials sticky top-0 left-0 py-4">
               <CustomPortableText paragraphClasses="italic" value={socials} />
             </div>
           </div>
