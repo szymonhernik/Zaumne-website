@@ -68,7 +68,7 @@ export function loadSettings() {
   return loadQuery<SettingsPayload>(
     settingsQuery,
     {},
-    { next: { tags: ['settings', 'home', 'page', 'project', 'discography'] } },
+    { next: { tags: ['settings', 'home', 'page', 'works', 'discography'] } },
   )
 }
 
@@ -76,6 +76,6 @@ export function loadHomePage() {
   return loadQuery<CombinedHomePagePayload>(
     homePageQuery,
     {},
-    { next: { tags: ['home', 'calendar'] } },
+    { next: { tags: ['home', 'calendar', 'mixes', 'works'] } },
   )
 }
