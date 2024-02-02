@@ -41,9 +41,6 @@ export default function Calendar({ calendar }) {
     // If showAll is false, slice the array to show only two latest events
 
     return events.map((event, index) => {
-      {
-        event.link && console.log('event link', event.link)
-      }
       const parsedDate = event.date.split('-').map(String) //[year, month, day]
       return (
         <div key={index} className="my-4 text-xs flex w-full ">
