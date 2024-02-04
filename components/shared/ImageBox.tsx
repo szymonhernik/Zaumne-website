@@ -23,12 +23,16 @@ export default function ImageBox({
   classesImage,
   ...props
 }: ImageBoxProps) {
-  const imageUrl =
-    image && urlForImage(image)?.height(height).width(width).url()
+  // Assuming image.asset.url is the base URL you're starting with
+  const imageUrl2 =
+    image && image.asset.url && `${image.asset.url}?w=${width}&h=${height}`
+
+  // Directly using LQIP provided by Sanity for blurDataURL
+  const blurDataURL = image?.asset?.lqip
 
   return (
     <div className={`${classesWrapper}`} data-sanity={props['data-sanity']}>
-      {imageUrl && (
+      {imageUrl2 && (
         <Image
           className={`w-full  sm:max-w-[600px] ${classesImage}`}
           alt={alt}
@@ -36,7 +40,9 @@ export default function ImageBox({
           height={height}
           sizes={size}
           quality={100}
-          src={imageUrl}
+          src={imageUrl2}
+          placeholder="blur"
+          blurDataURL={blurDataURL} // Use the extracted LQIP as the blurDataURL
         />
       )}
     </div>

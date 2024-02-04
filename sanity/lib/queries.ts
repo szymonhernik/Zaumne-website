@@ -8,7 +8,17 @@ export const homePageQuery = groq`
     socials,
     showcaseProjects[]->{
       _type,
-      coverImage,
+      coverImage{
+        _type,
+        alt,
+        asset->{
+          ...,
+          _ref,
+          _type,
+          
+          "lqip": metadata.lqip,
+        }
+      },
       highlighted,
       title,
       date,
@@ -19,7 +29,17 @@ export const homePageQuery = groq`
     },
     showcaseWorks[]->{
       _type,
-      coverImage,
+      coverImage{
+        _type,
+        alt,
+        asset->{
+          ...,
+          _ref,
+          _type,
+          
+          "lqip": metadata.lqip,
+        }
+      },
       workDetails,
       workDescription,
       highlighted,
