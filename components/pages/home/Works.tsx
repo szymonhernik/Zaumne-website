@@ -81,15 +81,13 @@ export function Works(props: WorksProps) {
                         className="hover:underline"
                       >
                         <h1 className="italic text-zaumne-blue mt-8">
-                          {' '}
                           {work.title}
                         </h1>
                       </a>
                     </BoopButton>
                   ) : (
                     <h1 className="italic text-zaumne-blue mt-8">
-                      {' '}
-                      {work.title}{' '}
+                      {work.title}
                     </h1>
                   )}
                   {work.workDetails && (
