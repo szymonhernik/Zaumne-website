@@ -21,7 +21,7 @@ export default function Colophon() {
           {' '}
           <a
             target="_blank"
-            href="https://linktr.ee/isz_szi"
+            href="https://iszszistudio.com/"
             className="text-zaumne-pink underline"
           >
             isz szi studio
